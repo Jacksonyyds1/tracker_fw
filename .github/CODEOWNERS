@@ -1,0 +1,4 @@
+# Default owners for everything in the repo.
+# They will be requested for review when someone opens a pull request.
+* @nickstoughton @manuhrao @ProtoErikS @ProtoSorcerySteve
+

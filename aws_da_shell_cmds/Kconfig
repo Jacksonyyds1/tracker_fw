@@ -1,0 +1,41 @@
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file is the application Kconfig entry point. All application Kconfig
+# options can be defined here or included via other application Kconfig files.
+# You can browse these options using the west targets menuconfig (terminal) or
+# guiconfig (GUI).
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
+module = bringup
+module-str = bringup
+source "subsys/logging/Kconfig.template.log_config"
+
+config ENABLE_RFFE_TO_QM13335TR13
+    bool "enable RFFE communication to QM13335TR13"
+    default false
+    help 
+        Enable RFFE communication to QM13335TR13
+
+config USE_UART_TO_NRF9160
+    bool "use UART to nRF9160"
+    default true
+    help 
+        Use UART to nRF9160DK
+
+config USE_UART_TO_DA16200
+    bool "use UART to DA16200"
+    default true
+    help 
+        Use UART to DA16200
+
+module = WIFI_UART
+module-str = wifi_uart
+source "subsys/logging/Kconfig.template.log_config"
+
+module = WIFI_SPI
+module-str = wifi_spi
+source "subsys/logging/Kconfig.template.log_config"

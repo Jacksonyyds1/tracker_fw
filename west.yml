@@ -1,0 +1,22 @@
+# This workflow uses badger-zephyr as the manifest repository.
+manifest:
+  remotes:
+    - name: ncs
+      url-base: https://github.com/nrfconnect
+    - name: culvert
+      url-base: git@github.com:CuvertEngineering
+      
+  projects:
+      # Nordic Connect SDK, including nrfxlib, Zephyr, MCUBoot, and mbedtls
+    - name: sdk-nrf
+      remote: ncs
+      revision: v2.5.0
+      repo-path: sdk-nrf
+      path: nrf
+      import: true
+
+    - name: purina-d1-tools
+      remote: culvert
+      revision: main
+      repo-path: purina-d1-tools
+      path: purina-d1-tools

@@ -1,0 +1,134 @@
+#
+# Copyright (c) 2020 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+#
+
+menu "Purina D1 LTE Settings"
+
+config PURINA_D1_LTE_JSON_MESSAGE_SIZE_MAX
+	int "Maximum size of JSON messages"
+	default 5120
+	help
+	  Maximum size of JSON messages that are sent to AWS IoT.
+
+config PURINA_D1_LTE_JSON_TOPIC_SIZE_MAX
+	int "Maximum size of JSON topics"
+	default 48
+	help
+	  Maximum size of JSON topics that are sent to AWS IoT.
+
+config PURINA_D1_LTE_IOT_BROKER_HOST_NAME_SIZE_MAX
+	int "Maximum size of AWS IoT broker host name"
+	default 64
+	help
+	  Maximum size of AWS IoT broker host name.
+
+config PURINA_D1_LTE_CLIENT_ID_SIZE_MAX
+	int "Maximum size of client ID string"
+	default 32
+	help
+	  Maximum size of string for client ID.
+
+config PURINA_D1_LTE_CLIENT_MAX_SUBSCRIPTION_TOPICS
+	int "Maximum num of subscription topics"
+	default 10
+
+config PURINA_D1_LTE_PUBLICATION_INTERVAL_SECONDS
+	int "Interval in seconds that the app will publish uptime/info data"
+	default 60
+	help
+	  Currently sends info to a topic $aws/things/{HW_id}/shadow/update/documents with things like versions, uptime, etc.
+
+config PURINA_D1_LTE_CONNECTION_RETRY_TIMEOUT_SECONDS
+	int "Number of seconds between each AWS IoT connection retry"
+	default 30
+
+config PURINA_D1_LTE_MQTT_RECONNECTION_TIMEOUT_SECONDS
+	int "Reconnection timeout in seconds"
+	default 10
+	help
+	  Time in between reconnection attempts to the MQTT broker.
+
+config PURINA_D1_SPIS_LOG_LEVEL
+	int "spi module log level"
+	default 4
+
+config PURINA_D1_SPIS_RX_BUFFER_SIZE
+	int "spi module rx buffer size"
+	default 5120
+	help
+	  The size of the SPI module's RX buffer. defaulted to 5120 to support Nick's 5k power testing.
+
+config PURINA_D1_SPIS_TX_BUFFER_SIZE
+	int "spi module tx buffer size"
+	default 3072
+
+config PURINA_D1_LTE_DOWNLOAD_URL_SIZE_MAX
+	int "Maximum size of download URL"
+	default 2096
+	help
+	  Maximum size of download URL.
+
+config PURINA_D1_DISABLE_MODEM_ON_BOOT
+	bool "pause the boot before the modem connects"
+	default n
+
+config PURINA_D1_REBOOT_ON_ERROR
+	bool "reboot on error"
+	default y
+
+config PURINA_D1_LTE_LOG_LEVEL
+	int "log level"
+	default 4
+
+config PURINA_D1_DOWNLOAD_SECURITY_TAG
+	int "download security tag"
+	default 123
+
+config PURINA_D1_LTE_GNSS_SAMPLE_MODE_CONTINUOUS
+	bool "GNSS sample mode continuous"
+	default y
+
+config PURINA_D1_LTE_CLIENT_ID_PREFIX
+	string "Client ID prefix"
+	default "dog-"
+
+config PURINA_D1_LTE_PRINT_GPS_STATS
+	bool "Print GPS stats"
+	default n
+
+config PURINA_D1_LTE_ENABLE_ZBUS_LOG_MESSAGES
+	bool "Enable log messages sent over zbus then to the 5340 - using send_zbus_debug_info()"
+	default y
+
+config PURINA_D1_LTE_ZBUS_LOG_MESSAGE_LEVEL
+	int "Zbus log message level - any message with a level less than or equal this will be sent over zbus"
+	default 3
+
+config GNSS_PRIORITY_ON_FIRST_FIX
+	bool "GNSS priority on first fix"
+	default y
+
+config RELEASE_BUILD
+    bool "Production Release"
+    help
+      Set to true to disable various developer features and to enable additonal security
+
+config PURINA_D1_LTE_FOTA_CHUNK_SIZE_MAX
+	int "Maximum size of FOTA chunk"
+	default 1024
+	help
+	  Maximum size of FOTA chunk.
+
+rsource "src/gps/Kconfig"
+
+module = PURINA_D1_LTE
+module-str = Purina D1 LTE
+source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
+
+endmenu
+
+menu "Zephyr Kernel"
+source "Kconfig.zephyr"
+endmenu

@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+
+zephyr_library_sources_ifdef(CONFIG_PURINA_D1_LTE_ASSISTANCE_NRF_CLOUD assistance.c)
+zephyr_library_sources_ifdef(CONFIG_PURINA_D1_LTE_ASSISTANCE_SUPL assistance_supl.c)
+zephyr_library_sources_ifdef(CONFIG_PURINA_D1_LTE_ASSISTANCE_MINIMAL assistance_minimal.c)
+zephyr_library_sources_ifdef(CONFIG_PURINA_D1_LTE_ASSISTANCE_MINIMAL mcc_location_table.c)
+
+
+target_sources(app PRIVATE d1_gps.c)

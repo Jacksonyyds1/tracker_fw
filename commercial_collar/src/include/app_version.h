@@ -1,0 +1,8 @@
+/* Copyright (c) 2024, Nestle Purina Pet Care. All rights reserved */
+#pragma once
+#define APP_VERSION_MAJOR (APP_VERSION_MAJOR_CMAKE)
+#define APP_VERSION_MINOR (APP_VERSION_MINOR_CMAKE)
+#define APP_VERSION_PATCH (APP_VERSION_PATCH_CMAKE)
+#define GIT_HASH          (GIT_HASH_CMAKE)
+#define DBUILD_MACHINE    (BUILD_MACHINE_CMAKE)
+#define DBUILD_DATE       (BUILD_DATE_CMAKE)

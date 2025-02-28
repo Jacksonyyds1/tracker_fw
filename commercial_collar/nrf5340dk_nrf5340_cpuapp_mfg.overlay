@@ -1,0 +1,500 @@
+/*
+ * Copyright (c) 2024, Nestle Purina Pet Care. All rights reserved
+ *
+ * SPDX-License-Identifier: LicenseRef-BSD-5-Clause-Nordic
+ */
+
+ / {
+
+    leds {
+        compatible = "gpio-leds";
+        uwbreset: uwb_reset_1 {
+               gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+               label = "12 V boost";
+        };
+        ledenable: led_enable_1 {
+               gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+               label = "LED driver enable";
+        };
+        p3v3einken: p3v3_eink_en1 {
+               gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+               label = "Enables the LDO for the Eink";
+        };
+    };
+
+    buttons {
+        compatible = "gpio-keys";
+
+        override: force_login {
+            gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Ship Override";
+        };
+
+        touchinterrupt: touch_interrupt1 {
+            gpios = <&gpio1 6 (GPIO_PULL_UP |GPIO_ACTIVE_LOW)>;
+            label = "Touch interrupt";
+        };
+
+        nfcinterrupt: nfc_interrupt1 {
+               gpios = <&gpio0 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+               label = "NFC interrupt";
+        };
+
+        dainterrupt: dialog_interrupt {
+               gpios = <&gpio0 27 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+               label = "DA16200 interrupt";
+        };
+
+        modemdataready: modem_data_ready {
+            gpios = <&gpio1 15 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+            label = "NRF9160 interrupt";
+        };
+
+        antennavio:  antenna_vio {
+            gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH)>;
+            label = "QM13335TR13 vio test pin";
+        };
+
+        antennasda:  antenna_sda {
+            gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH)>;
+            label = "QM13335TR13 sda test pin";
+        };
+
+        antennascl:  antenna_scl {
+            gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH)>;
+            label = "QM13335TR13 scl test pin";
+        };
+
+	spi2cs:  spi2_cs {
+		gpios = <&gpio1 0 (GPIO_ACTIVE_LOW)>;
+		label = "SPI2 CS pin";
+	};
+
+        spi4cs:  spi4_cs {
+            gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH)>;
+            label = "SPI4 CS pin";
+        };
+
+        pmicInt:  pmic_int {
+            gpios = <&gpio0 23 (GPIO_ACTIVE_HIGH)>;
+            label = "PMIC INT PIN";
+        };
+    };
+
+    vbatt {
+          compatible = "voltage-divider";
+          io-channels = <&adc 2>;
+          output-ohms = <49900>;
+          full-ohms = <(100000 + 49900)>;
+          power-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
+    };
+
+    aliases {
+        i2c1 = &i2c1;
+        ledenable = &ledenable;
+        touchinterrupt = &touchinterrupt;
+        nfcinterrupt = &nfcinterrupt;
+        p3v3einken = &p3v3einken;
+        uwbreset = &uwbreset;
+        dainterrupt = &dainterrupt;
+        spi-flash0 = &mx25r32;
+        modemuart = &uart1;
+        spi2cs = &spi2cs;
+        spi4cs = &spi4cs;
+        pmicint = &pmicInt;
+        imu = &lsm6dsv16x;
+    };
+};
+
+&pinctrl {
+
+    uart0_default: uart0_default {
+                group1 {
+                    psels = <NRF_PSEL(UART_TX, 1, 1)>;
+                };
+                group2 {
+                        psels = <NRF_PSEL(UART_RX, 0, 29)>;
+                        bias-pull-up;
+                };
+                /delete-property/ hw-flow-control;
+        };
+
+    uart0_sleep: uart0_sleep {
+            group1 {
+                    psels = <NRF_PSEL(UART_TX, 1, 1)>,
+                            <NRF_PSEL(UART_RX, 0, 29)>;
+                    low-power-enable;
+                    /delete-property/ hw-flow-control;
+            };
+    };
+
+    uart_over_spi_to_9160_default: uart_over_spi_to_9160_default {
+            group1 {
+                    psels = <NRF_PSEL(UART_TX, 0, 9)>;
+            };
+            group2 {
+                    psels = <NRF_PSEL(UART_RX, 0, 8)>;
+                    bias-pull-up;
+            };
+            /delete-property/ hw-flow-control;
+    };
+
+    uart_over_spi_to_9160_sleep: uart_over_spi_to_9160_sleep {
+            group1 {
+                    psels = <NRF_PSEL(UART_TX, 0, 9)>,
+                            <NRF_PSEL(UART_RX, 0, 8)>;
+                    low-power-enable;
+                    /delete-property/ hw-flow-control;
+            };
+    };
+
+    uart_over_spi_to_wifi_default: uart_over_spi_to_wifi_default {
+        group1 {
+                psels = <NRF_PSEL(UART_TX, 0, 30)>;
+        };
+        group2 {
+                psels = <NRF_PSEL(UART_RX, 0, 31)>;
+                bias-pull-up;
+        };
+        /delete-property/ hw-flow-control;
+    };
+
+    uart_over_spi_to_wifi_sleep: uart_over_spi_to_wifi_sleep {
+            group1 {
+                    psels = <NRF_PSEL(UART_TX, 0, 30)>,
+                            <NRF_PSEL(UART_RX, 0, 31)>;
+                    low-power-enable;
+                    /delete-property/ hw-flow-control;
+            };
+    };
+
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 3)>,
+                <NRF_PSEL(TWIM_SCL, 1, 2)>;
+        };
+    };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 3)>,
+                <NRF_PSEL(TWIM_SCL, 1, 2)>;
+            low-power-enable;
+        };
+    };
+
+    spi2_default: spi2_default {
+	group1 {
+	    psels = <NRF_PSEL(SPIM_SCK, 1, 10)>,
+		<NRF_PSEL(SPIM_MISO, 0, 31)>,
+		<NRF_PSEL(SPIM_MOSI, 0, 30)>;
+	};
+    };
+
+    spi2_sleep: spi2_sleep {
+	group1 {
+	    psels = <NRF_PSEL(SPIM_SCK, 1, 10)>,
+		<NRF_PSEL(SPIM_MISO, 0, 31)>,
+		<NRF_PSEL(SPIM_MOSI, 0, 30)>;
+	    low-power-enable;
+	};
+    };
+
+    spi_imu_default: spi_imu_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 22)>,
+                <NRF_PSEL(SPIM_MISO, 0, 19)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 21)>;
+        };
+    };
+
+    spi_imu_sleep: spi_imu_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 22)>,
+                <NRF_PSEL(SPIM_MISO, 0, 19)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 21)>;
+            low-power-enable;
+        };
+    };
+
+    spi4_default: spi4_default {
+        group1 {
+                psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
+                        <NRF_PSEL(SPIM_MISO, 1, 13)>,
+                        <NRF_PSEL(SPIM_MOSI, 0, 9)>,
+                        <NRF_PSEL(SPIS_CSN, 0, 11)>;
+        };
+    };
+
+    spi4_sleep: spi4_sleep {
+        group1 {
+                psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
+                        <NRF_PSEL(SPIM_MISO, 1, 13)>,
+                        <NRF_PSEL(SPIM_MOSI, 0, 9)>,
+                        <NRF_PSEL(SPIS_CSN, 0, 11)>;
+                low-power-enable;
+        };
+    };
+
+    qspi_default: qspi_default {
+        group1 {
+            psels = <NRF_PSEL(QSPI_SCK, 0, 17)>,
+                <NRF_PSEL(QSPI_IO0, 0, 13)>,
+                <NRF_PSEL(QSPI_IO1, 0, 14)>,
+                <NRF_PSEL(QSPI_IO2, 0, 15)>,
+                <NRF_PSEL(QSPI_IO3, 0, 16)>,
+                <NRF_PSEL(QSPI_CSN, 0, 18)>;
+            nordic,drive-mode = <NRF_DRIVE_H0H1>;
+        };
+    };
+
+    qspi_sleep: qspi_sleep {
+        group1 {
+            psels = <NRF_PSEL(QSPI_SCK, 0, 17)>,
+                <NRF_PSEL(QSPI_IO0, 0, 13)>,
+                <NRF_PSEL(QSPI_IO1, 0, 14)>,
+                <NRF_PSEL(QSPI_IO2, 0, 15)>,
+                <NRF_PSEL(QSPI_IO3, 0, 16)>;
+            low-power-enable;
+        };
+        group2 {
+            psels = <NRF_PSEL(QSPI_CSN, 0, 18)>;
+            low-power-enable;
+            bias-pull-up;
+        };
+    };
+};
+
+&i2c1 {
+    clock-frequency = <400000>;
+
+    npm1300_ek_pmic: pmic@6b {
+        compatible = "nordic,npm1300";
+        reg = <0x6b>;
+
+        npm1300_ek_gpio: gpio-controller {
+            compatible = "nordic,npm1300-gpio";
+            gpio-controller;
+            #gpio-cells = <2>;
+            ngpios = <5>;
+        };
+
+        npm1300_ek_regulators: regulators {
+            compatible = "nordic,npm1300-regulator";
+
+            /* limits are set to min/max allowed values */
+            npm1300_ek_buck1: BUCK1 {
+                regulator-min-microvolt = <1800000>;
+                regulator-max-microvolt = <1900000>;
+                regulator-init-microvolt = <1900000>;
+                /* set to 1.9V for boot, will be set to 1.8V by software.  Workaround for NPM1300 Errata #27 */
+            };
+/*
+            npm1300_ek_buck2: BUCK2 {
+                regulator-min-microvolt = <1000000>;
+                regulator-max-microvolt = <3300000>;
+                regulator-init-microvolt = <1800000>;
+                retention-microvolt = <2500000>;
+                enable-gpios = <&npm1300_ek_gpio 1 GPIO_ACTIVE_LOW>;
+                retention-gpios = <&npm1300_ek_gpio 2 GPIO_ACTIVE_HIGH>;
+                pwm-gpios = <&npm1300_ek_gpio 2 GPIO_ACTIVE_LOW>;
+            };
+*/
+            npm1300_ek_ldo1: LDO1 {
+                regulator-min-microvolt = <1000000>;
+                regulator-max-microvolt = <3300000>;
+                enable-gpios = <&npm1300_ek_gpio 2 GPIO_ACTIVE_LOW>;
+            };
+
+            npm1300_ek_ldo2: LDO2 {
+                regulator-min-microvolt = <1000000>;
+                regulator-max-microvolt = <3300000>;
+                enable-gpios = <&npm1300_ek_gpio 2 GPIO_ACTIVE_LOW>;
+            };
+        };
+
+        npm1300_ek_charger: charger {
+            compatible = "nordic,npm1300-charger";
+            term-microvolt = <4450000>;
+            term-warm-microvolt = <4450000>;
+            current-microamp = <520000>;
+            dischg-limit-microamp = <1000000>;  // 270000 min
+            vbus-limit-microamp = <700000>;
+            thermistor-ohms = <10000>;
+            thermistor-beta = <3435>;
+            charging-enable;
+        };
+
+        npm1300_ek_leds: pmicleds {
+            compatible = "nordic,npm1300-led";
+            nordic,led0-mode = "host";
+            nordic,led1-mode = "host";
+            nordic,led2-mode = "host";
+        };
+
+        npm1300_wdt: watchdog {
+            compatible = "nordic,npm1300-wdt";
+            /* nordic_npm1300wdt */
+        };
+    };
+};
+
+&uicr {
+    nfct-pins-as-gpios;
+};
+
+// One of these is needed communicating to the DA16200.
+// Uart is deprecated
+&spi2 {
+	compatible = "nordic,nrf-spim";
+    status = "okay";
+	pinctrl-0 = <&spi2_default>;
+	pinctrl-1 = <&spi2_sleep>;
+	pinctrl-names = "default", "sleep";
+	cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+};
+&uart2 {
+    current-speed = <115200>;
+    status = "disabled";
+    pinctrl-0 = <&uart_over_spi_to_wifi_default>;
+    pinctrl-1 = <&uart_over_spi_to_wifi_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi_imu_default>;
+    pinctrl-1 = <&spi_imu_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    label = "SPI_4";
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+
+    lsm6dsv16x: lsm6dsv16x@0 {
+        compatible = "st,lsm6dsv16x-d1";
+        status = "okay";
+        reg = <0>;
+        spi-max-frequency = <4000000>;
+        int1-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+        int2-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+        drdy-pin = <1>;
+        drdy-pulsed;
+        label = "LSM6DSV16X";
+        gyro-range = <2>; // LSM6DSV16X_DT_FS_500DPS
+        accel-range = <1>; // LSM6DSV16X_DT_FS_4G
+    };
+};
+
+&mx25r64 {
+	status = "disabled";
+};
+
+&qspi {
+    status = "okay";
+    pinctrl-0 = <&qspi_default>;
+    pinctrl-1 = <&qspi_sleep>;
+    pinctrl-names = "default", "sleep";
+    mx25r32: mx25r3235f@0 {
+        compatible = "nordic,qspi-nor";
+        reg = <0>;
+        /* MX25R64 supports only pp and pp4io */
+        writeoc = "pp4io";
+        /* MX25R64 supports all readoc options */
+        readoc = "read4io";
+        sck-frequency = <8000000>;
+        jedec-id = [c2 28 16];
+        sfdp-bfp = [
+            e5 20 f1 ff  ff ff ff 03  44 eb 08 6b  08 3b 04 bb
+            ee ff ff ff  ff ff 00 ff  ff ff 00 ff  0c 20 0f 52
+            10 d8 00 ff  23 72 f5 00  82 ed 04 cc  44 83 68 44
+            30 b0 30 b0  f7 c4 d5 5c  00 be 29 ff  f0 d0 ff ff
+        ];
+        size = <33554432>;
+	zephyr,pm-device-runtime-auto;
+        has-dpd;
+        t-enter-dpd = <10000>;
+        t-exit-dpd = <35000>;
+    };
+};
+
+/ {
+	chosen {
+			// required to use Partition Manager
+			nordic,pm-ext-flash = &mx25r32;
+	};
+};
+
+/delete-node/ &storage_partition;
+
+/ {
+        fstab {
+                compatible = "zephyr,fstab";
+                lfs1: lfs1 {
+                        compatible = "zephyr,fstab,littlefs";
+                        mount-point = "/lfs1";
+                        partition = <&lfs1_part>;
+                        automount;
+                        read-size = <16>;
+                        prog-size = <16>;
+                        cache-size = <64>;
+                        lookahead-size = <32>;
+                        block-cycles = <512>;
+                };
+        };
+};
+
+&mx25r32 {
+        partitions {
+                compatible = "fixed-partitions";
+                #address-cells = <1>;
+                #size-cells = <1>;
+
+                lfs1_part: partition@0 {
+                        label = "storage";
+                        reg = <0x00000000 0x100000>;
+                };
+        };
+};
+
+
+&uart0 {
+    status = "okay";
+    current-speed = <115200>;
+    pinctrl-0 = <&uart0_default>;
+    pinctrl-1 = <&uart0_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+
+
+&i2c2 {
+    status = "disabled";
+};
+
+
+
+
+
+/ {
+    gpio_fwd: nrf-gpio-forwarder {
+        compatible = "nordic,nrf-gpio-forwarder";
+        status = "disabled";
+        uart {
+            gpios = <&gpio1 1 0>, <&gpio1 0 0>, <&gpio0 11 0>, <&gpio0 10 0>;
+        };
+    };
+};
+
+/ {
+    // This is a workaround for coexistence between DA16200 and nRF5340
+    nrf_radio_fem: name_of_fem_node {
+        compatible  = "nordic,nrf21540-fem";
+        tx-en-gpios = <&gpio0 27 GPIO_ACTIVE_HIGH>;
+        rx-en-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        pdn-gpios   = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+        tx-en-settle-time-us = <100>;
+    };
+};

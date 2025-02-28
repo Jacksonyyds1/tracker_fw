@@ -1,0 +1,133 @@
+name: Build and archive
+
+# run builds when:
+# * initially opening a PR as non-Draft
+# * converting a PR from Draft to Ready for Review
+# * pushing commits to a non-Draft PR
+# * creating a release
+on:
+  pull_request:
+    types: [ opened, ready_for_review, synchronize ]
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.draft == false }}
+    container: zephyrprojectrtos/ci:v0.26.4
+    env:
+      CMAKE_PREFIX_PATH: /opt/toolchains
+
+    strategy:
+      matrix:
+        # add any additional app dirs we want to build to the array below
+        directory: ['commercial_collar', 'chekr_app', 'purina_d1_lte']
+    steps:
+      - name: add SSH Key for accessing purina-d1-tools repo
+        shell: bash
+        run: |
+          mkdir -p /root/.ssh
+          echo "${{ secrets.PURINA_D1_TOOLS_PRIVATE_KEY }}" > /root/.ssh/id_ed25519
+          chmod 600 /root/.ssh/id_ed25519
+          ssh-keyscan github.com >> /root/.ssh/known_hosts
+          chmod 644 /root/.ssh/known_hosts
+
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+        with:
+          path: purina-d1-workspace
+
+      - name: Initialize
+        working-directory: purina-d1-workspace
+        run: |
+          pip3 install ecdsa
+          pip3 install -U west
+          west init -l .
+
+      - name: Cache west modules
+        id: cache-west
+
+        # note: set ENABLE_CACHE in repo settings to enable the cache.
+        # this requires an instance with a larger disk space, as the
+        # tar operation on a cache miss requires a lot of temporary
+        # disk space and can result in 'no space left on device' for
+        # a standard VM instance
+        if: env.ENABLE_CACHE != ''
+        uses: actions/cache@v3
+        with:
+          path: |
+            zephyr/
+            nrf/
+            modules/
+          key: ${{ runner.os }}-west-${{ hashFiles('west.yml') }}
+
+      - name: West Update and install requirements
+        run: |
+          west update
+          pip3 install -r zephyr/scripts/requirements-base.txt
+
+      - name: Set signing key
+        working-directory: /
+        env:
+          SIGNING_KEY: ${{ secrets.RELEASE_KEY }}
+        run: |
+          echo "echo $SIGNING_KEY to /var/tmp"
+          echo "$SIGNING_KEY" > /var/tmp/release_key.pem
+
+      - name: Build all app(s) for dev, signed with default MCUboot key, and produce artifacts
+        working-directory: purina-d1-workspace
+        shell: bash
+        run: |
+          cd ${{matrix.directory}}
+          make clean unsigned archive
+
+
+      # 'make release' automatically produces release archives
+      - name: Build all app(s) for release, signed with production MCUboot key, and produce artifacts
+        working-directory: purina-d1-workspace
+        shell: bash
+        run: |
+          cd ${{matrix.directory}}
+          make SIGNING_KEY=/var/tmp/release_key.pem clean release
+
+      - name: Upload all images to work flow run
+        # note: set UPLOAD_WORKFLOW_ARTIFACTS in repo settings to always upload
+        # artifacts to the work flow runs, e.g. for PR's
+        if: ${{ env.UPLOAD_WORKFLOW_ARTIFACTS != '' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{matrix.directory}}-images
+          path: purina-d1-workspace/${{matrix.directory}}/artifacts/*
+
+      - name: Extract tag prefix
+        id: tag_prefix
+        run: echo "TAG_PREFIX=$(echo ${GITHUB_REF#refs/tags/} | cut -d'-' -f1)" >> $GITHUB_ENV
+
+      - name: Extract tag version
+        id: tag_version
+        run: echo "TAG_VERSION=$(echo ${GITHUB_REF#refs/tags/} | cut -d'-' -f2-)" >> $GITHUB_ENV
+
+      - name: Verify tag version matches CMakeLists.txt version for the app being released
+        working-directory: purina-d1-workspace/${{matrix.directory}}
+        if: ${{ github.event.action == 'published' && env.TAG_PREFIX == matrix.directory }}
+        shell: bash
+        run: |
+          FW_VERSION=`cat CMakeLists.txt | grep project | grep -oE '[0-9]+\.[0-9]+\.[0-9]+'`
+          echo "FW_VERSION: ${FW_VERSION}"
+          if [ "$FW_VERSION" = "$TAG_VERSION" ]; then
+            echo "Tag equals firmware version, continuing with workflow."
+          else
+            echo "Tag doesn't equal firmware version!  Please fix, aborting workflow."
+            exit 1
+          fi
+
+      - name: Upload binaries to GitHub release if TAG_PREFIX matches one of the app directories
+        if: ${{ github.event.action == 'published' && env.TAG_PREFIX == matrix.directory }}
+        uses: svenstaro/upload-release-action@2.7.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: purina-d1-workspace/${{matrix.directory}}/artifacts/*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true

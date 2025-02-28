@@ -1,0 +1,16 @@
+# Copyright (c) 2024 Culvert Engineering Inc
+# SPDX-License-Identifier: LicenseRef-Proprietary
+#
+# This file is the application Kconfig entry point. All application Kconfig
+# options can be defined here or included via other application Kconfig files.
+# You can browse these options using the west targets menuconfig (terminal) or
+# guiconfig (GUI).
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
+config RELEASE_BUILD
+    bool "Production Release"
+    help
+      Set to true to disable various developer features and to enable additonal security

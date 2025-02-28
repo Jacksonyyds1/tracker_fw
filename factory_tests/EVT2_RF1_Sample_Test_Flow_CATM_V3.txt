@@ -1,0 +1,817 @@
+#LitePoint Test Flow Version 1.5.1
+
+RunMode = 0
+RepeatTimes = 1
+ExitWhenDone = 0
+ShowFailInfo = 0
+PrecisionDigitMode = 0
+RetryMode = 0
+EnableFlowCheckWarning = 0
+WIFI_11AC:
+	INSERT_DUT
+		#Input Parameters:
+		>RELOAD_DUT_DLL [Integer]  = 0 
+		>CONNECTION_STRING [String]  = COM4 
+		>DUT_DLL_FILENAME [String]  = Culvert_Nestle.dll 
+		>EEPROM_FILENAME [String]  =  
+		>OPTION_STRING [String]  = config_wifi.ini 
+		#Return Values:
+		<DUT_VERSION [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+		<VDUT_VERSION [String]  = <,>
+	REMOVE_DUT
+		#Input Parameters:
+		>OPTION_STRING [String]  =  
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+	GET_SERIAL_NUMBER
+		#Input Parameters:
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+		<SERIAL_NUMBER [String]  = <,>
+CATM:
+	RUN_EXTERNAL_PROGRAM ALWAYS_SKIP
+		#:run_mode = ALWAYS_SKIP
+		#Input Parameters:
+		>WAIT_TIME_MS [Integer]  = 100 
+		>ARGUMENTS [String]  = 127.0.0.1 
+		>PROGRAM_NAME [String]  = ttermpro.exe 
+		>PROGRAM_WORKING_DIRECTORY [String]  = C:\Program Files (x86)\teraterm 
+		>RESULT_FILE_NAME [String]  = tmp.txt 
+		#Return Values:
+		<CURRENT_1_MA [Double]  = <,>
+		<CURRENT_2_MA [Double]  = <,>
+		<CURRENT_3_MA [Double]  = <,>
+		<MEASUREMENT_1 [Double]  = <,>
+		<MEASUREMENT_2 [Double]  = <,>
+		<MEASUREMENT_3 [Double]  = <,>
+		<POWER_1_MW [Double]  = <,>
+		<POWER_2_MW [Double]  = <,>
+		<POWER_3_MW [Double]  = <,>
+		<VOLTAGE_1_V [Double]  = <,>
+		<VOLTAGE_2_V [Double]  = <,>
+		<VOLTAGE_3_V [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+		<EXE_CHECK [String]  = <,>
+	CONNECT_IQ_TESTER
+		#Input Parameters:
+		>APP_ID [Integer]  = 1 
+		>APT_ENABLE [Integer]  = 0 
+		>DH_ENABLE [Integer]  = 0 
+		>DH_OBTAIN_CONTROL_TIMEOUT_MS [Integer]  = 300000 
+		>DH_PROBE_TIME_MS [Integer]  = 100 
+		>DH_TOKEN_ID [Integer]  = 1 
+		>IQTESTER_RECONNECT [Integer]  = 1 
+		>IQTESTER_TYPE [Integer]  = 1 
+		>REQUEST_RESOURCE_TIMEOUT_SEC [Integer]  = 30 
+		>IQTESTER_MODULE_01 [String]  = 10.193.34.3:D 
+		>OPTION_STRING [String]  =  
+		#Return Values:
+		<BLUETOOTH_VERSION [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+		<IQAPITC_VERSION [String]  = <,>
+		<IQAPI_VERSION [String]  = <,>
+		<IQMEASURE_VERSION [String]  = <,>
+		<IQTESTER_FIRMWARE_VERSION [String]  = <,>
+		<IQTESTER_INFO [String]  = <,>
+		<IQTESTER_SERIAL_NUM_01 [String]  = <,>
+		<IQV_ANALYSIS_VERSION [String]  = <,>
+		<IQV_MW_VERSION [String]  = <,>
+		<IQ_MAX_SIGNAL_VERSION [String]  = <,>
+		<IQ_NXN_SIGNAL_VERSION [String]  = <,>
+		<IQ_NXN_VERSION [String]  = <,>
+		<IQ_ZIGBEE_SIGNAL_VERSION [String]  = <,>
+		<TEST_MANAGER_VERSION [String]  = <,>
+	GLOBAL_SETTINGS
+		#Input Parameters:
+		>AUTO_READING_LIMIT [Integer]  = 0 
+		>DUT_KEEP_TRANSMIT [Integer]  = 0 
+		>DUT_RX_SETTLE_TIME_MS [Integer]  = 200 
+		>DUT_TX_SETTLE_TIME_MS [Integer]  = 200 
+		>ENABLE_OBW_SRBW [Integer]  = 0 
+		>IQ_P_TO_A_SIGNAL [Integer]  = 5 
+		>LOAD_INTERNAL_WAVEFORM [Integer]  = 0 
+		>RETRY_ERROR_ITEMS [Integer]  = 1 
+		>RETRY_TEST_ITEM [Integer]  = 1 
+		>TX_AVERAGE [Integer]  = 1 
+		>VSA_PORT [Integer]  = 2 
+		>VSA_SAVE_CAPTURE_ALWAYS [Integer]  = 0 
+		>VSA_SAVE_CAPTURE_ON_FAILED [Integer]  = 1 
+		>VSA_TRIGGER_TIMEOUT_SEC [Integer]  = 1 
+		>VSA_TRIGGER_TYPE [Integer]  = 1 
+		>VSG_PORT [Integer]  = 2 
+		>FILTER_BANDWIDTH [Double]  = 0.1 
+		>FILTER_OFFSET [Double]  = 0 
+		>FILTER_ROLL_OFF [Double]  = 0.1 
+		>VSA_PRE_TRIGGER_TIME_US [Double]  = 150 
+		>VSA_TRIGGER_LEVEL_DB [Double]  = -25 
+		>VSG_MAX_POWER [Double]  = -5 
+		>POWER_MEASUREMENT_FILTER [String]  = None 
+		>WAVEFORM_NAME_BPSK [String]  =  
+		>WAVEFORM_NAME_QPSK [String]  =  
+		>WAVEFORM_PATH [String]  = ../iqvsg 
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+	INSERT_DUT
+		#Input Parameters:
+		>RELOAD_DUT_DLL [Integer]  = 1 
+		>CONNECTION_STRING [String]  = COM4 
+		>DUT_DLL_FILENAME [String]  = Culvert_Nestle.dll 
+		>EEPROM_FILENAME [String]  =  
+		>OPTION_STRING [String]  = config_nRF9160.ini 
+		#Return Values:
+		<CURRENT [Double]  = <,>
+		<DUT_VERSION [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+		<VDUT_VERSION [String]  = <,>
+	INITIALIZE_DUT
+		#Input Parameters:
+		#Return Values:
+		<DUT_DRIVER_INFO [String]  = <,>
+		<DUT_FW_VERSION [String]  = <,>
+		<DUT_NAME [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RUN_DUT_COMMAND
+		#Input Parameters:
+		>COMMAND_DELAY [Integer]  = 200 
+		>WAIT_TIME_MS [Integer]  = 200 
+		>DUT_COMMAND [String]  =  
+		>ERROR_STRING [String]  =  
+		>PROMPT [String]  =  
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+		<RESPONSE [String]  = <,>
+	LOAD_PATH_LOSS_TABLE
+		#Input Parameters:
+		>RX_PATH_LOSS_FILE [String]  = path_loss_15dB_CATM_RF1.csv 
+		>TX_PATH_LOSS_FILE [String]  = path_loss_15dB_CATM_RF1.csv 
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+	CW_GPS_TEST
+		#Input Parameters:
+		>TIMEOUT [Integer]  = 60 
+		>CABLE_LOSS_DB [Double]  = 15 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>GPS_FREQUENCY [Double]  = 1575.42 
+		>POWER [Double]  = -80 
+		#Return Values:
+		<CN [Double]  = <,>
+		<RSSI [Double]  = < -71.68, -59.73>
+		<SNR [Double]  = < 19.38, 27.56>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 5 
+		>CHANNEL_UPLINK [Integer]  = 20400 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 3.03, 16.14>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 5 
+		>CHANNEL_UPLINK [Integer]  = 20525 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 3.13, 20.13>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 5 
+		>CHANNEL_UPLINK [Integer]  = 20649 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 4.67, 20.75>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 12 
+		>CHANNEL_UPLINK [Integer]  = 23010 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 5.90, 20.13>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 12 
+		>CHANNEL_UPLINK [Integer]  = 23095 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 5.87, 20.13>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 12 
+		>CHANNEL_UPLINK [Integer]  = 23179 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 5.75, 19.84>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 4 
+		>CHANNEL_UPLINK [Integer]  = 19950 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 8.83, 19.42>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 4 
+		>CHANNEL_UPLINK [Integer]  = 20125 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 10.99, 19.61>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 4 
+		>CHANNEL_UPLINK [Integer]  = 20399 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 12.72, 20.11>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 2 
+		>CHANNEL_UPLINK [Integer]  = 18600 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 6.97, 19.84>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 2 
+		>CHANNEL_UPLINK [Integer]  = 18900 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 8.94, 18.30>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	TX_VERIFICATION
+		#Input Parameters:
+		>ARRAY_HANDLING_METHOD [Integer]  = 0 
+		>BAND [Integer]  = 2 
+		>CHANNEL_UPLINK [Integer]  = 19199 
+		>ENABLE_AFC [Integer]  = 0 
+		>MODULATION [Integer]  = 1 
+		>NARROWBAND_INDEX [Integer]  = 3 
+		>RB_TONE_COUNT [Integer]  = 6 
+		>RB_TONE_START [Integer]  = 0 
+		>SUBCARRIER_SPACING [Integer]  = 0 
+		>SYSTEM_BANDWIDTH [Integer]  = 3 
+		>TX_BURST_MODE [Integer]  = 0 
+		>TX_GAIN_INDEX [Integer]  = 0 
+		>TX_POWER_DBM [Integer]  = 18.00 
+		>FREQUENCY_OFFSET [Double]  = 0 
+		>SAMPLING_TIME_US [Double]  = 2e+004 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<FREQ_ERROR_AVG [Double]  = <,>
+		<POWER_AVERAGE [Double]  = < 10.19, 19.46>
+		<TX_POWER_DBM [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 2 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 600 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = NB-IOT 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -117.35, -106.42>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 2 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 900 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -99.13, -88.16>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 2 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 1199 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -100.02, -88.16>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 4 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 1950 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = NB-IOT 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -119.30, -105.17>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 4 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 2125 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -100.49, -90.50>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 4 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 2399 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -102.45, -91.17>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 5 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 2400 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -100.10, -84.64>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 5 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 2525 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -100.88, -86.87>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 5 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 2649 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -100.77, -84.32>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 12 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 5010 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -102.21, -88.27>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 12 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 5045 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -102.37, -88.35>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	RX_VERIFICATION
+		#Input Parameters:
+		>BAND [Integer]  = 12 
+		>BANDWIDTH_INDEX [Integer]  = 0 
+		>CHANNEL_DOWNLINK [Integer]  = 5179 
+		>NUM_OF_ANTENNAS [Integer]  = 1 
+		>RX_ANTENNA_PATH [Integer]  = 0 
+		>TX_RELATE [Integer]  = 0 
+		>TYPE [Integer]  = 0 
+		>FREQUENCY_OFFSET [Double]  = 330 
+		>RX_POWER_DBM [Double]  = -90 
+		>OPTION_STRING [String]  =  
+		>STANDARD [String]  = 4G 
+		>TECHNOLOGY [String]  = LTE-M 
+		#Return Values:
+		<CABLE_LOSS_DB [Double]  = <,>
+		<CABLE_LOSS_DB_1 [Double]  = <,>
+		<CABLE_LOSS_DB_2 [Double]  = <,>
+		<CABLE_LOSS_DB_3 [Double]  = <,>
+		<CABLE_LOSS_DB_4 [Double]  = <,>
+		<RECEIVED_POWER_LEVEL_DBM [Double]  = < -103.31, -88.98>
+		<RSSI_1 [Double]  = <,>
+		<RSSI_2 [Double]  = <,>
+		<RSSI_3 [Double]  = <,>
+		<RSSI_4 [Double]  = <,>
+		<SENSITIVITY [Double]  = <,>
+		<SNR [Double]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	DISCONNECT_IQ_TESTER
+		#Input Parameters:
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+	REMOVE_DUT
+		#Input Parameters:
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>

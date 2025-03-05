@@ -1,0 +1,85 @@
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+#
+# This file is the application Kconfig entry point. All application Kconfig
+# options can be defined here or included via other application Kconfig files.
+# You can browse these options using the west targets menuconfig (terminal) or
+# guiconfig (GUI).
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
+module = bringup
+module-str = bringup
+source "subsys/logging/Kconfig.template.log_config"
+
+config ENABLE_RFFE_TO_QM13335TR13
+    bool "enable RFFE communication to QM13335TR13"
+    default false
+    help 
+        Enable RFFE communication to QM13335TR13
+
+config USE_UART_TO_NRF9160
+    bool "use UART to nRF9160"
+    default true
+    help 
+        Use UART to nRF9160DK
+
+config CULVERT_LOCATION_DEMO_MODE
+    bool "Send battery and SSIDS to the nrf9160"
+    default false
+    help
+        Send battery and SSIDS to the nrf9160
+
+config USE_UART_TO_DA16200
+    bool "use UART to DA16200"
+    default true
+    help 
+        Use UART to DA16200
+
+module = WIFI_UART
+module-str = wifi_uart
+source "subsys/logging/Kconfig.template.log_config"
+
+module = WIFI_SPI
+module-str = wifi_spi
+source "subsys/logging/Kconfig.template.log_config"
+
+module = PMIC
+module-str = PMIC
+source "subsys/logging/Kconfig.template.log_config"
+
+module = SPI_MODEM
+module-str = spi_modem
+source "subsys/logging/Kconfig.template.log_config"
+
+config IOT_BROKER_HOST_NAME
+	string "AWS IoT Broker Host Name"
+	default "a3hoon64f0fuap-ats.iot.eu-west-1.amazonaws.com"
+	help 
+        The AWS IoT broker host name, defaults to staging
+
+config IOT_MQTT_BRAND_ID
+	int "purina assigned brand id"
+	default 35
+
+config IOT_MQTT_REGION_ID
+	string "purina assigned region id"
+	default "US"
+
+config IOT_MAX_TOPIC_LENGTH
+	int "Maximum topic length"
+	default 48
+
+config IOT_MAX_TOPIC_NUM
+	int "Maximum number of topics"
+	default 16
+
+config AVOID_ZBUS
+	int "compaibility with commercial_collar"
+	default 1
+
+config BUILDING_MFG_SHELL
+    int "Building for MFG shell"
+    default 1

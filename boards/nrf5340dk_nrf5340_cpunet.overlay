@@ -1,0 +1,141 @@
+// To get started, press Ctrl+Space (or Option+Esc) to bring up the completion menu and view the available nodes.
+// For more help, browse the DeviceTree documentation at https://docs.zephyrproject.org/latest/guides/dts/index.html
+
+
+/{
+    leds {
+            compatible = "gpio-leds";
+            /delete-node/ led_0;
+            /delete-node/ led_1;         
+            /delete-node/ led_2; /* delete the led2: led_2 node in nrf52840dk_nrf52840.dts */
+            /delete-node/ led_3; /* delete the led3: led_3 node in nrf52840dk_nrf52840.dts */
+            
+    };
+
+
+
+
+    aliases {
+            /delete-property/ led0;
+            /delete-property/ led1;
+            /delete-property/ led2;         /* delete unused alias */
+            /delete-property/ led3;
+        
+           
+            /delete-property/sw0;
+            /delete-property/sw1;		/* delete unused alias */
+            /delete-property/sw2;
+            /delete-property/sw3;
+            /delete-property/ bootloader-led0;
+            
+    };
+
+
+    /delete-node/ leds;
+    /delete-node/ buttons; 
+    
+     
+};
+
+
+
+&uart0 {
+    status = "disabled";            // disable uart0 so we can enable spi0 
+    //status = "okay";
+};
+
+
+&i2c0 {
+    status = "disabled";            // disable i2c0 so we can enable spi0 
+    //status = "okay";
+};
+
+
+/* 
+// New DTS format, used for 1.8.x and above
+// Use PINCTRL API.  Don't forget to set CONFIG_PINCTRL=y in prj.conf file
+&pinctrl {
+    spi0_default: spi0_default {
+            //phandle = < 0x5 >;
+            group1 {
+                    //psels = < 0x4002b >, < 0x5002c >, < 0x6002d >;
+                    psels = <NRF_PSEL(SPIM_SCK, 1, 11)>,    // P1.11
+                    <NRF_PSEL(SPIM_MOSI, 1, 12)>,           // P1.12
+                    <NRF_PSEL(SPIM_MISO, 1, 13)>;           // P1.13
+
+            };
+    };
+    spi0_sleep: spi0_sleep {
+            //phandle = < 0x6 >;
+            group1 {
+                    //psels = < 0x4002b >, < 0x5002c >, < 0x6002d >;
+                    psels = <NRF_PSEL(SPIM_SCK, 1, 11)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 12)>,
+                    <NRF_PSEL(SPIM_MISO, 1, 13)>;                      
+                    low-power-enable;
+            };
+    };
+
+
+};
+
+
+
+&spi0 {
+    compatible = "nordic,nrf-spim";
+    // Cannot be used together with uart0, i2c0, ... etc 
+    status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <125000>;
+    //sck-pin = < 43 >;    // 43 = 32 + 11 = P1.11 from old format for reference
+    //mosi-pin = < 44 >;
+    //miso-pin = < 45 >;
+    //cs-gpios = <&arduino_header 16 GPIO_ACTIVE_LOW>;   // Arduino Header 16 = D10 on nrF5340DK = P1.12
+    //cs-gpios = <&arduino_header 18 GPIO_ACTIVE_LOW>;   // Arduino Header 18 = D12 on nrF5340DK = P1.14
+    cs-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;              // P1.14
+    
+    spid0:lsm6dso@0 {
+    compatible = "st,lsm6dso";
+            status = "okay";
+            reg = <0>;
+            spi-max-frequency = <4000000>;
+            irq-gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;    // P1.15 for Passport V.3 board
+            //int-pin = <1>;
+            label = "LSM6DSO";
+    };   
+};
+*/
+
+
+// Older format of DTS for reference
+&spi0 { // use spi0 for IMU, so can't use uart0, i2c0, ...etc 
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    //status = "disabled";
+    sck-pin = < 43 >;
+    mosi-pin = < 44 >;
+    miso-pin = < 45 >;
+    //clock-frequency = <4000000>;    
+    label = "SPI_0";
+    cs-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
+
+    //cs-gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+    //cs-gpios = <&arduino_header 18 GPIO_ACTIVE_HIGH>; // D12 
+
+            lsm6dso@0 {
+    compatible = "st,lsm6dso";
+            status = "okay";
+            reg = <0>;
+            spi-max-frequency = <4000000>;
+            //irq-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>;
+            //int-pin = <1>;
+            label = "LSM6DSO";
+        };   
+
+    };
+
+
+
+

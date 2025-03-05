@@ -1,0 +1,311 @@
+# Copyright (c) 2024, Nestle Purina Pet Care. All rights reserved
+# SPDX-License-Identifier: LicenseRef-Proprietary
+#
+# This file is the application Kconfig entry point. All application Kconfig
+# options can be defined here or included via other application Kconfig files.
+# You can browse these options using the west targets menuconfig (terminal) or
+# guiconfig (GUI).
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
+module = bringup
+module-str = bringup
+source "subsys/logging/Kconfig.template.log_config"
+
+# FIXME: we occasionally get a stack overflow on reboot.
+# This param is not configurable in prj.conf but we can change it here.
+config BT_LONG_WQ_STACK_SIZE
+    int "Long workqueue stack size"
+    default 2000
+
+config ENABLE_RFFE_TO_QM13335TR13
+    bool "enable RFFE communication to QM13335TR13"
+    default false
+    help
+        Enable RFFE communication to QM13335TR13
+
+config CULVERT_LOCATION_DEMO_MODE
+    bool "Send battery and SSIDS to the nrf9160"
+    default false
+    help
+        Send battery and SSIDS to the nrf9160
+
+config IOT_BROKER_HOST_NAME
+	string "AWS IoT Broker Host Name"
+	default "a3hoon64f0fuap-ats.iot.eu-west-1.amazonaws.com"
+	help
+        The AWS IoT broker host name, defaults to staging
+
+config IOT_MQTT_BRAND_ID
+	int "purina assigned brand id"
+	default 35
+
+config IOT_MQTT_REGION_ID
+	string "purina assigned region id"
+	default "US"
+
+config IOT_MAX_TOPIC_LENGTH
+	int "Maximum topic length"
+	default 43
+
+config IOT_MAX_TOPIC_NUM
+	int "Maximum number of topics"
+	default 9
+
+config MODEM_GNSS_LNA_COMMAND
+    string "Modem GNSS LNA command"
+    default "at%XCOEX0=1,1,1570,1580"
+    help
+        Modem GNSS LNA command
+
+config IOT_SEND_TELEMETRY_TIMEOUT
+    int "IOT Send Telemetry Timeout"
+    default 300
+    help
+        IOT Send Telemetry Timeout
+
+config IOT_ENABLE_SEND_TELEMETRY
+    int "IOT Send Telemetry on boot"
+    default 0
+    help
+        IOT Send Telemetry enable
+
+config MAX_MQTT_MSG_SIZE
+    int "Max MQTT message size"
+    default 1980
+
+config RUN_FREE_MEMORY_CHECK
+    int "memory check every 10 sec"
+    default 0
+
+config SPI_SEND_BUFFER_MAX_SIZE
+    int "SPI send buffer max size"
+    default 6144
+
+config SPI_RECEIVE_BUFFER_MAX_SIZE
+    int "SPI receive buffer max size"
+    default 3072
+
+config ENABLE_FOTA_ON_USB_CONNECTION
+    int "Enable FOTA on USB connection"
+    default 1
+
+config REBOOT_ON_USB_CONNECT_TIME_IN_SECONDS
+    int "Reboot on USB connect time"
+    default 30
+
+config MAX_GPS_DATA_POINTS
+    int "Max GPS data points"
+    default 32
+
+config GPS_DATA_PERIOD
+    int "GPS data period"
+    default 5
+
+config GPS_ENABLED_ON_BOOT
+    int "GPS enabled on boot"
+    default 0
+
+config MAX_TELEMETRY_LOG_MSG_SIZE
+    int "Max telemetry log size (per message)"
+    default 256
+
+config MAX_TELEMETRY_LOG_FIFO_SIZE
+    int "Max telemetry log fifo count"
+    default 32
+
+config MAX_OPERATIONAL_BATTERY_TEMP
+    int "go into shiphold if temp is above this value. (value is divided by 10 in code)"
+    default 590
+
+config MIN_OPERATIONAL_BATTERY_TEMP
+    int "go into shiphold if temp is below this value. (value is divided by 10 in code)"
+    default -100
+
+config MAX_ALERT_BATTERY_TEMP
+    int "Issue alert if temp is above this value. (In tenths of a degree C)"
+    default 330
+
+config MIN_ALERT_BATTERY_TEMP
+    int "Issue alert if temp is below this value. (In tenths of a degree C)"
+    default 0
+
+
+config MIN_VOLTAGE_FOR_9160
+    int "Minimum voltage for 9160 (value is divided by 10 in code)"
+    default 33
+
+config MIN_VOLTAGE_FOR_5340
+    int "Minimum voltage for 5340 (value is divided by 10 in code)"
+    default 30
+
+config NRF9160_ENABLE_ON_BOOT
+    int "NRF9160 enabled on boot"
+    default 0
+
+config IOT_S_NORM_DEFAULT
+    int "Period between SSID scans in seconds in normal mode"
+    default 300
+    help
+        Period between SSID scans in seconds in normal mode
+
+config IOT_S_FMD_DEFAULT
+    int "Period between SSID scans in seconds in FMD mode"
+    default 30
+    help
+        Period between SSID scans in seconds in FMD mode
+
+config IOT_T_NORM_DEFAULT
+    int "Number of SSID scan periods before sending Telemetry in normal mode"
+    default 1
+    help
+        Number of SSID scan periods before sending Telemetry in normal mode
+
+config IOT_T_FMD_DEFAULT
+    int "Number of SSID scan periods before sending Telemetry in FMD mode"
+    default 1
+    help
+        Number of SSID scan periods before sending Telemetry in FMD mode
+
+config IOT_REC_VAR_DEFAULT
+    int "The number of seconds between attampts to reconnect to wifi"
+    default 300
+    help
+        The number of seconds between attampts to reconnect to wifi
+
+config IOT_Q_VAR_DEFAULT
+    int "The number of seconds between attampts to send any unsent mqtt msgs"
+    default 2
+    help
+        The number of seconds between attampts to send any unsent mqtt msgs
+
+config WIFI_AFTER_SLEEP_WAIT_DEFAULT
+    int "The number of milliseconds after we sleep the DA do we wait for it to fall asleep"
+    default 500
+    help
+        The number of milliseconds after we sleep the DA do we wait for it to fall asleep
+
+config IOT_DISABLE_S_WORK_DEFAULT
+    int "disable the CommMgr scan for SSID, send Telemetry, Do Wifi reconnect on boot"
+    default 0
+    help
+        "disable the CommMgr scan for SSID, send Telemetry, Do Wifi reconnect on boot
+
+config IOT_DISABLE_Q_WORK_DEFAULT
+    int "disable the CommMgr sending of queued MQTT messages at boot"
+    default 0
+    help
+        "disable the CommMgr scan for SSID, send Telemetry, Do Wifi reconnect on boot
+
+config RADIO_MGR_ENABLED_ON_BOOT
+    int "Radio Mgr enabled on boot"
+    default 1
+
+config RADIO_MGR_SLEEP_ENABLED
+    int "Radio Mgr use dpm/sleep"
+    default 1
+
+config DEBUG_WIFI_HEAP
+    int "Show alloc and free for Wifi Heap"
+    default 0
+
+config DISABLE_UART_TIME
+    int "Disable UART after a period"
+    default 30
+    help
+        Automatically disable the console after n seconds
+
+config ML_ENABLE
+    bool "Enable ML"
+    default y
+    help
+      Enable the ML module and suport code.
+if ML_ENABLE
+config ML_TEST
+    bool "Include ML test vectors"
+    help
+      Include the (large) test vectors for ML and the ml test command
+
+config ML_CAPTURE_IMU_DATA
+    bool "Record raw imu data as it is fed to ML"
+    help
+      Create 1 file per minute with raw imu data
+endif
+
+config RELEASE_BUILD
+    bool "Production Release"
+    help
+      Set to true to disable various developer features and to enable additonal security
+
+config LTE_FOTA_CHUNK_SIZE_MAX
+    int "Maximum size of FOTA chunk"
+    default 1024
+    help
+      Maximum size of FOTA chunk.
+
+if RELEASE_BUILD
+config RELEASE_CONSOLE
+    bool "Permit use of the console in release builds"
+endif
+
+config MIN_BFREE
+    int "Minimum number of blocks to maintain in LFS"
+    default 512
+
+module = D1_WIFI
+module-str = d1_wifi
+source "subsys/logging/Kconfig.template.log_config"
+
+module = WIFI_SPI
+module-str = wifi_spi
+source "subsys/logging/Kconfig.template.log_config"
+
+module = BLE
+module-str = ble_spi
+source "subsys/logging/Kconfig.template.log_config"
+
+module = PMIC
+module-str = pmic
+source "subsys/logging/Kconfig.template.log_config"
+
+module = STORAGE
+module-str = storage
+source "subsys/logging/Kconfig.template.log_config"
+
+module = TRACKER_SERVICE
+module-str = tracker_service
+source "subsys/logging/Kconfig.template.log_config"
+
+module = COMM_MGR
+module-str = comm_mgr
+source "subsys/logging/Kconfig.template.log_config"
+
+module = RADIO_MGR
+module-str = radio_mgr
+source "subsys/logging/Kconfig.template.log_config"
+
+module = NET_MGR
+module-str = net_mgr
+source "subsys/logging/Kconfig.template.log_config"
+
+module = WIFI_AT
+module-str = wifi_at
+source "subsys/logging/Kconfig.template.log_config"
+
+module = SPI_MODEM
+module-str = spi_modem
+source "subsys/logging/Kconfig.template.log_config"
+
+module = MODEM
+module-str = modem
+source "subsys/logging/Kconfig.template.log_config"
+
+module = LOG_TELEM
+module-str = log_telem
+source "subsys/logging/Kconfig.template.log_config"
+
+module = D1_JSON
+module-str = d1_json
+source "subsys/logging/Kconfig.template.log_config"

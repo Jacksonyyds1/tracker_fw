@@ -1,0 +1,2368 @@
+
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:95:2: Value stored to 'result' is never read [deadcode.DeadStores]
+  result = -EAGAIN;
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:279:2: Value stored to 'timeout' is never read [deadcode.DeadStores]
+  timeout = sys_timepoint_timeout(timepoint);
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:423:2: Value stored to 'timeout' is never read [deadcode.DeadStores]
+  timeout = sys_timepoint_timeout(timepoint);
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:845:8: Value stored to 'num' during its initialization is never read [deadcode.DeadStores]
+      int num = parse_wfscan(sub, skip_hidden);
+          ^
+
+[HIGH] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:900:9: Null pointer passed as 1st argument to string comparison function [unix.cstring.NullArg]
+        if (strncmp(desired_topics[j], da_state.mqtt_sub_topics[i], CONFIG_IOT_MAX_TOPIC_LENGTH) == 0) {
+            ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:1008:2: Value stored to 'timeout' is never read [deadcode.DeadStores]
+  timeout = sys_timepoint_timeout(timepoint);
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2315:5: Value stored to 'op' is never read [deadcode.DeadStores]
+        op = "wifi_disconnect_from_AP";
+        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2316:5: Value stored to 'ret' is never read [deadcode.DeadStores]
+        ret = wifi_disconnect_from_AP(K_MSEC(1000));
+        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2349:5: Value stored to 'op' is never read [deadcode.DeadStores]
+        op = "wifi_wake_no_sleep";
+        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2356:5: Value stored to 'op' is never read [deadcode.DeadStores]
+        op = "wifi_get_dpm_state";
+        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2366:6: Value stored to 'op' is never read [deadcode.DeadStores]
+          op = "wifi_disconnect_from_AP";
+          ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2367:6: Value stored to 'ret' is never read [deadcode.DeadStores]
+          ret = wifi_disconnect_from_AP(K_MSEC(1000));
+          ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2417:5: Value stored to 'op' is never read [deadcode.DeadStores]
+        op = "wifi_disconnect_from_AP";
+        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2418:5: Value stored to 'ret' is never read [deadcode.DeadStores]
+        ret = wifi_disconnect_from_AP(K_MSEC(1000));
+        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:3555:2: Value stored to 'timeout' is never read [deadcode.DeadStores]
+  timeout = sys_timepoint_timeout(timepoint);
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/build/modules/libmetal/libmetal/lib/include/metal/list.h:69:2: 1st argument 'list' (passed to 'node') looks like it might be swapped with the 2nd, 'node' (passed to 'new_node') [readability-suspicious-call-argument]
+  metal_list_add_after(list, node);
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/build/modules/libmetal/libmetal/lib/include/metal/list.h:75:2: 1st argument 'list' (passed to 'node') looks like it might be swapped with the 2nd, 'node' (passed to 'new_node') [readability-suspicious-call-argument]
+  metal_list_add_before(list, node);
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/watchdog/src/watchdog_shell.c:52:71: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(enable, NULL, "enable the watchdog", enable_watchdog_cmd), SHELL_SUBCMD_SET_END);
+                                                                       ^        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/ble.c:211:60: implicit conversion loses integer precision: 'unsigned int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+            BT_DATA(BT_DATA_NAME_COMPLETE, local_name_str, strlen(local_name_str)),
+                                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/include/net_mgr.h:287:61: implicit conversion loses integer precision: 'da_ota_progress_t' (aka 'enum da_ota_progress') to 'int8_t' (aka 'signed char') [clang-diagnostic-implicit-int-conversion]
+inline int8_t da_state_get_ota_progress() { return da_state.ota_progress; }
+                                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/include/net_mgr.h:288:60: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+inline uint8_t da_state_get_reboot_cnt() { return da_state.reboot_cnt; }
+                                                           ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:698:2: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  switch (code) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:698:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (code) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:734:55: implicit conversion loses integer precision: 'int' to 'int8_t' (aka 'signed char') [clang-diagnostic-implicit-int-conversion]
+  fota_status_t fevt = {.status = fstat, .percentage = fper, .device_type = COMM_DEVICE_DA16200};
+                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:859:21: implicit conversion loses integer precision: 'int32_t' (aka 'int') to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+      ota_info->last = amount;
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:892:35: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    ota_info->reboot_cnt = da_state.reboot_cnt;
+                                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:970:9: variable 'reason' set but not used [clang-diagnostic-unused-but-set-variable]
+    char *reason = sub+10;
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1103:25: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  payload.topic_length = topiclen;
+                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1105:27: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  payload.payload_length = msglen;
+                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1118:57: format specifies type 'void *' but the argument has type 'uint8_t *' (aka 'unsigned char *') [clang-diagnostic-format-pedantic]
+  LOG_DBG("Incrementing packet ref count of %p from %d", msg->data, msg->ref_count);
+                                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1769:20: comparison of integers of different signs: 'int' and 'unsigned int' [clang-diagnostic-sign-compare]
+  for (int k = 0; k < DA_UICR_BACKUP_SIZE; k++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1943:10: enumeration values 'DA_OTA_ERROR_PARSING_PROGRESS', 'DA_OTA_ERROR_REBOOTING', and 'DA_OTA_VERSION_MISMATCH' not explicitly handled in switch [clang-diagnostic-switch-enum]
+  switch (progress) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:2158:4: the value returned by this function should not be disregarded; neglecting it may lead to errors [cert-err33-c]
+      sscanf(sub, "+WFJAP:1,'%[^']',%s", ssid, ip);
+      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:2212:4: the value returned by this function should not be disregarded; neglecting it may lead to errors [cert-err33-c]
+      sscanf(sub, "+RSSI:%s", rssi);
+      ^          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/radioMgr.c:122:20: unused function 'is_da_awake' [clang-diagnostic-unused-function]
+static inline bool is_da_awake()
+                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/radioMgr.c:148:20: unused function 'is_lte_connected' [clang-diagnostic-unused-function]
+static inline bool is_lte_connected(uint32_t* status_ptr) {
+                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/radioMgr.c:936:24: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int' [clang-diagnostic-sign-compare]
+        if (time_spent > info->timeout) {
+                       ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/radioMgr.c:1717:17: 'radio_mgr_task_id' declared with a const-qualified typedef; results in the type being 'struct k_thread *const' instead of 'const struct k_thread *' [misc-misplaced-const]
+K_THREAD_DEFINE(radio_mgr_task_id,
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/radioMgr.c:1818:2: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_SUBCMD_SET_END);
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:184:40: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  if (lsm6dsv16x_accel_set_odr_raw(dev, odr) < 0) {
+                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:202:39: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  if (lsm6dsv16x_accel_set_fs_raw(dev, fs) < 0) {
+                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:220:10: 14 enumeration values not explicitly handled in switch: 'SENSOR_ATTR_LOWER_THRESH', 'SENSOR_ATTR_UPPER_THRESH', 'SENSOR_ATTR_SLOPE_TH'... [clang-diagnostic-switch-enum]
+  switch (attr) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:224:45: implicit conversion loses integer precision: 'const int32_t' (aka 'const int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    return lsm6dsv16x_accel_odr_set(dev, val->val1);
+                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:274:39: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  if (lsm6dsv16x_gyro_set_odr_raw(dev, odr) < 0) {
+                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:292:38: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  if (lsm6dsv16x_gyro_set_fs_raw(dev, fs) < 0) {
+                                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:310:10: 14 enumeration values not explicitly handled in switch: 'SENSOR_ATTR_LOWER_THRESH', 'SENSOR_ATTR_UPPER_THRESH', 'SENSOR_ATTR_SLOPE_TH'... [clang-diagnostic-switch-enum]
+  switch (attr) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:314:44: implicit conversion loses integer precision: 'const int32_t' (aka 'const int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    return lsm6dsv16x_gyro_odr_set(dev, val->val1);
+                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:372:10: 59 enumeration values not explicitly handled in switch: 'SENSOR_CHAN_ACCEL_X', 'SENSOR_CHAN_ACCEL_Y', 'SENSOR_CHAN_ACCEL_Z'... [clang-diagnostic-switch-enum]
+  switch (chan) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:459:10: 58 enumeration values not explicitly handled in switch: 'SENSOR_CHAN_ACCEL_X', 'SENSOR_CHAN_ACCEL_Y', 'SENSOR_CHAN_ACCEL_Z'... [clang-diagnostic-switch-enum]
+  switch (chan) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:497:28: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  dval = (int64_t)(raw_val) * sensitivity * SENSOR_G_DOUBLE;
+                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:497:42: implicit conversion turns floating-point number into integer: 'double' to 'int64_t' (aka 'long long') [clang-diagnostic-float-conversion]
+  dval = (int64_t)(raw_val) * sensitivity * SENSOR_G_DOUBLE;
+                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:509:10: 57 enumeration values not explicitly handled in switch: 'SENSOR_CHAN_GYRO_X', 'SENSOR_CHAN_GYRO_Y', 'SENSOR_CHAN_GYRO_Z'... [clang-diagnostic-switch-enum]
+  switch (chan) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:545:28: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  dval = (int64_t)(raw_val) * sensitivity * SENSOR_DEG2RAD_DOUBLE;
+                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:545:42: implicit conversion turns floating-point number into integer: 'double' to 'int64_t' (aka 'long long') [clang-diagnostic-float-conversion]
+  dval = (int64_t)(raw_val) * sensitivity * SENSOR_DEG2RAD_DOUBLE;
+                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:557:10: 57 enumeration values not explicitly handled in switch: 'SENSOR_CHAN_ACCEL_X', 'SENSOR_CHAN_ACCEL_Y', 'SENSOR_CHAN_ACCEL_Z'... [clang-diagnostic-switch-enum]
+  switch (chan) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x.c:733:10: 53 enumeration values not explicitly handled in switch: 'SENSOR_CHAN_MAGN_X', 'SENSOR_CHAN_MAGN_Y', 'SENSOR_CHAN_MAGN_Z'... [clang-diagnostic-switch-enum]
+  switch (chan) {
+          ^
+
+
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:386:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_SRF_NONCE, 0, 5);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:448:27: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    gT_val = (int)(temp * T);
+                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:548:31: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+            for (int i = 0; i < list->count; i++) {
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:575:48: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_INFO_TELEMETRY, 0, 20);
+                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:596:13: variable 'radio' set but not used [clang-diagnostic-unused-but-set-variable]
+    radio_t radio = RADIO_TYPE_LTE;
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:604:27: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+        for (int i = 0; i < list->count; i++) {
+                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:632:48: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_NEAR_REAL_TIME, 0, 10);
+                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:676:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_NEAR_REAL_TIME, 0, 5);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:708:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_NEAR_REAL_TIME, 0, 10);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:740:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_CONN_TEST, 0, 30);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:772:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_NEAR_REAL_TIME, 0, 10);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:802:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_ONBOARDING, 0, 1);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:837:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_SHADOW_PROXY, 0, 20);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:858:5: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+    LOG_HEXDUMP_DBG(pl, strlen(pl), "Connectivity resp:");
+    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:970:21: logical expression is always false [misc-redundant-expression]
+    if (S_Norm < 10 && S_Norm > 65534) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:974:20: logical expression is always false [misc-redundant-expression]
+    if (S_FMD < 10 && S_FMD > 65534) {
+                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:978:20: logical expression is always false [misc-redundant-expression]
+    if (T_Norm < 1 && T_Norm > 100) {
+                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:982:19: logical expression is always false [misc-redundant-expression]
+    if (T_FMD < 1 && T_FMD > 100) {
+                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:986:18: logical expression is always false [misc-redundant-expression]
+    if (Rec < 10 && Rec > 65534) {
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:990:15: logical expression is always false [misc-redundant-expression]
+    if (Q < 1 && Q > 65534) {
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:997:25: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    shadow_doc.S_Norm = S_Norm;
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:998:24: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    shadow_doc.S_FMD = S_FMD;
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:999:25: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    shadow_doc.T_Norm = T_Norm;
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1000:24: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    shadow_doc.T_FMD = T_FMD;
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1001:22: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    shadow_doc.Rec = Rec;
+                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1002:22: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    shadow_doc.Rec = Rec;
+                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1046:13: variable 'radio' set but not used [clang-diagnostic-unused-but-set-variable]
+    radio_t radio = RADIO_TYPE_WIFI;
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1085:27: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+        for (int i = 0; i < data->count; i++) {
+                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1107:48: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_NEAR_REAL_TIME, 0, 10);
+                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1220:44: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = commMgr_queue_mqtt_message(json, strlen(json), MQTT_MESSAGE_TYPE_SRF_FUNC, 0, 5);
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1320:17: enumeration value 'SRF_COMMAND_UNKNOWN' not explicitly handled in switch [clang-diagnostic-switch-enum]
+        switch (srf_data.command) {
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1342:49: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                    my_FMD_work_info.duration = fmd_period;
+                                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1457:9: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+        LOG_HEXDUMP_DBG(msg->payload, msg->payload_length, "Received message:");
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1567:65: format string is not a string literal [clang-diagnostic-format-nonliteral]
+    int topicLen = snprintk(topic, CONFIG_IOT_MAX_TOPIC_LENGTH, topicBase,
+                                                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1593:43: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        if ((ret = modem_send_mqtt(topic, topicLen, msg, msg_len, qos, timeout_ms)) == 0) {
+                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1593:72: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        if ((ret = modem_send_mqtt(topic, topicLen, msg, msg_len, qos, timeout_ms)) == 0) {
+                                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1608:38: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        if ((ret = wifi_mqtt_publish(type, msg, true, K_SECONDS(6))) == 0) {
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1636:13: enumeration values 'COMM_DEVICE_NONE', 'COMM_DEVICE_ALL', and 'COMM_DEVICE_ANY' not explicitly handled in switch [clang-diagnostic-switch-enum]
+    switch (device) {
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1683:13: enumeration values 'COMM_DEVICE_NONE', 'COMM_DEVICE_ALL', and 'COMM_DEVICE_ANY' not explicitly handled in switch [clang-diagnostic-switch-enum]
+    switch (device) {
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1780:46: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        ret = send_mqtt_message(msg.msg, msg.len, msg.topic, msg.qos, true);
+                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1870:39: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                            thing_id, strlen(thing_id));
+                                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1903:62: format string is not a string literal [clang-diagnostic-format-nonliteral]
+            snprintf(topics[i], CONFIG_IOT_MAX_TOPIC_LENGTH, topicBase, CONFIG_IOT_MQTT_BRAND_ID, topicList1[i], thing_id);
+                                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1909:62: format string is not a string literal [clang-diagnostic-format-nonliteral]
+            snprintf(topics[i], CONFIG_IOT_MAX_TOPIC_LENGTH, topicBase, CONFIG_IOT_MQTT_BRAND_ID, topicList2[i], thing_id);
+                                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:1918:53: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = modem_set_mqtt_subscriptions(topics, qos, topicCount);
+                                                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:2420:13: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        if (percentage < 0.0) { percentage = 0.0; }
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:2421:13: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        if (percentage > 100.0) { percentage = 100.0; }
+            ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:2520:17: 'comm_mgr_task_id' declared with a const-qualified typedef; results in the type being 'struct k_thread *const' instead of 'const struct k_thread *' [misc-misplaced-const]
+K_THREAD_DEFINE(comm_mgr_task_id,
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/commMgr.c:2746:2: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_SUBCMD_SET_END);
+  ^
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_spi.c:41:71: operator has equivalent nested operands [misc-redundant-expression]
+  .operation = SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_LINES_SINGLE |
+                                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_spi.c:183:21: implicit conversion loses integer precision: 'uint16_t' (aka 'unsigned short') to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    .length[2] = rsp->length,
+                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_spi.c:321:18: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    msg.data_len = strlen((char *)msg.data);
+                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_spi.c:423:33: implicit conversion loses integer precision: 'int' to 'gpio_pin_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  ret = gpio_pin_configure(port, pin, GPIO_INPUT|GPIO_PULL_DOWN);
+                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_spi.c:429:43: implicit conversion loses integer precision: 'int' to 'gpio_pin_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  ret = gpio_pin_interrupt_configure(port, pin, GPIO_INT_EDGE_RISING);
+                                           ^
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:1057:9: Value stored to 'ret' is never read [deadcode.DeadStores]
+        ret = 0;
+        ^        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:166:10: Although the value stored to 'ret' is used in the enclosing expression, the value is never actually read from 'ret' [deadcode.DeadStores]
+    if ((ret = fs_open(&update_notes, "/lfs1/fota_in_progress.txt", FS_O_READ)) != 0) {
+         ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:260:13: Value stored to 'ret' is never read [deadcode.DeadStores]
+            ret = fs_write(&update_notes, file_data, strlen(file_data));
+            ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:262:13: Value stored to 'ret' is never read [deadcode.DeadStores]
+            ret = fs_write(&update_notes, file_data, strlen(file_data));
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:176:29: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        if (modem_recv_resp(my_handle, buf, &len, timeout_in_ms) == 0) {
+                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:180:19: 'signed char' to 'int' conversion; consider casting to 'unsigned char' first. [bugprone-signed-char-misuse]
+            ret = *incoming_status;
+                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:211:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, buf, &len, 3000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:255:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, buf, &len, 1000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:310:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, buf, &len, 1000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:344:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, buf, &len, 1000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:381:79: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int my_handle = modem_send_command(MESSAGE_TYPE_DOWNLOAD_FROM_HTTPS, url, strlen(url), true);
+                                                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:392:35: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        int ret = modem_recv_resp(my_handle, buf, &len, 10000);
+                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:530:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, response, &response_length, 3000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:572:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, response, response_length, 3000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:596:38: format string is not a string literal [clang-diagnostic-format-nonliteral]
+    int len = snprintk(data+1, 1023, mqtt_params_str, host, port, client_id);
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:603:62: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    return modem_send_command(MESSAGE_TYPE_COMMAND, data, len+1, false);
+                                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:639:73: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    ret = modem_send_command(MESSAGE_TYPE_COMMAND, data, strlen(data+1) + 1, false);
+                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:860:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, response, response_length, 3000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:929:43: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            data.chunk_total = (file_size / CONFIG_LTE_FOTA_CHUNK_SIZE_MAX);
+                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:930:30: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            data.chunk_num = i;
+                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:931:29: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            data.data_len = rc;
+                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:946:33: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+            if (modem_recv_resp(my_handle, response, &response_length, 10000) == 0) {
+                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:1003:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int my_handle = modem_send_command(MESSAGE_TYPE_COMMAND, data, strlen(dns) + 1, true);
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem.c:1009:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, data, &reply_size, 3000) == 0) {
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/tde/src/tde_shell.c:167:36: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    int fraction = ((info.current) - (int)info.current) * 1000;
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/tde/src/tde_shell.c:167:55: implicit conversion turns floating-point number into integer: 'float' to 'int' [clang-diagnostic-float-conversion]
+    int fraction = ((info.current) - (int)info.current) * 1000;
+                                                        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/tde/src/tde_shell.c:185:5: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+        switch (x) {
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/tde/src/tde_shell.c:185:5: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+        switch (x) {
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/tde/src/tde_shell.c:298:32: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int ret = uicr_test_flag_set(N);
+                                 ^                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:29:18: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for(int i=0;i<len;i++) {
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:71:27: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+        for (int i = 0; i < (len - 1); i++) {
+                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:86:19: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (int i=0;i<len;i++) {
+                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:111:77: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        int my_handle = modem_send_command(MESSAGE_TYPE_AT, modem_send_buf, modem_send_buf_length, true);
+                                                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:115:28: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        if(modem_recv_resp(my_handle, buf, &len, 10000) == 0) {
+                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:170:40: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int ret = modem_send_mqtt(argv[1], strlen(argv[1]), argv[2], strlen(argv[2]), atoi(argv[3]), 3000);
+                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:170:66: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int ret = modem_send_mqtt(argv[1], strlen(argv[1]), argv[2], strlen(argv[2]), atoi(argv[3]), 3000);
+                                                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:170:83: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    int ret = modem_send_mqtt(argv[1], strlen(argv[1]), argv[2], strlen(argv[2]), atoi(argv[3]), 3000);
+                                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:185:40: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    if (modem_send_at_command(argv[1], strlen(argv[1]), buf, &len) == 0) {
+                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:330:36: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    modem_fota_from_https(argv[1], strlen(argv[1]));
+                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:385:38: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int ret = modem_send_mqtt(topic, topicLen, payload, len, 0, 5000);
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:385:57: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int ret = modem_send_mqtt(topic, topicLen, payload, len, 0, 5000);
+                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_shell.c:507:5: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+    SHELL_SUBCMD_SET_END
+    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:157:2: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+  LOG_HEXDUMP_DBG(buf, len, "DEVICE_INFO");
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:327:16: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  for (i = 0; i < m_sorted_wifi_scan_list.count; i++) {
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:340:8: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  if (i == m_sorted_wifi_scan_list.count) {
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:356:2: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+  LOG_HEXDUMP_DBG(buf, len, "WIFI_CONNECT");
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:496:2: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+  LOG_HEXDUMP_DBG(buf, len, "PING");
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:574:2: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+  LOG_HEXDUMP_DBG(buf, len, "SCAN_TRIG");
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:632:21: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (int i = 0; i < m_sorted_wifi_scan_list.count; i++) {
+                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:750:31: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  read_response.response_len = cbor_len;
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:779:39: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  LOG_DBG("fuel guage soc: %.2f", fuel.soc);
+                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:827:31: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  read_response.response_len = cbor_len;
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:936:31: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  read_response.response_len = cbor_len;
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1019:31: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  read_response.response_len = cbor_len;
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1075:20: comparison of integers of different signs: 'int' and 'unsigned int' [clang-diagnostic-sign-compare]
+  for (int i = 0; i < sizeof(nonce); i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1083:31: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  read_response.response_len = cbor_len;
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1110:29: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  if (m_wifi_retrieved_count == m_sorted_wifi_scan_list.count) {
+                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1121:32: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    read_response.response_len = cbor_len;
+                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1189:31: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  read_response.response_len = cbor_len;
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1340:65: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    bt_gatt_notify(conn, &tracker_service.attrs[1], cbor_payload, cbor_len);
+                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1400:65: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    bt_gatt_notify(conn, &tracker_service.attrs[1], cbor_payload, cbor_len);
+                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1448:65: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    bt_gatt_notify(conn, &tracker_service.attrs[1], cbor_payload, cbor_len);
+                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1508:65: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    bt_gatt_notify(conn, &tracker_service.attrs[1], cbor_payload, cbor_len);
+                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1555:65: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    bt_gatt_notify(conn, &tracker_service.attrs[1], cbor_payload, cbor_len);
+                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1604:65: implicit conversion loses integer precision: 'size_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    bt_gatt_notify(conn, &tracker_service.attrs[1], cbor_payload, cbor_len);
+                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:1744:2: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+  LOG_HEXDUMP_DBG(buf, len, "DOG_INFO");
+  ^         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/d1_time.c:323:5: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+    SHELL_SUBCMD_SET_END
+    ^     ^
+
+DEVICE_DT_DEFINE(CRYPTOCELL_NODE_ID, entropy_cc3xx_rng_init,
+^        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ble/src/tracker_service.c:633:16: Value stored to 'wifi_ap' during its initialization is never read [deadcode.DeadStores]
+      wifi_obj_t *wifi_ap = &m_sorted_wifi_scan_list.wifi[i];
+                  ^                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:356:72: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    .timestamp = k_uptime_get(), .incoming = 0, .data = buf, .data_len = strlen(buf), .ref_count = 1};
+                                                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:488:18: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  msg->data_len = buf_size;
+                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:528:56: format specifies type 'void *' but the argument has type 'wifi_msg_t *' (aka 'struct wifi_msg *') [clang-diagnostic-format-pedantic]
+    LOG_ERR("msg at %p(data %p) has ref count < 0 (%d)", msg, msg->data, msg->ref_count);
+                                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:528:61: format specifies type 'void *' but the argument has type 'uint8_t *' (aka 'unsigned char *') [clang-diagnostic-format-pedantic]
+    LOG_ERR("msg at %p(data %p) has ref count < 0 (%d)", msg, msg->data, msg->ref_count);
+                                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:532:37: format specifies type 'void *' but the argument has type 'wifi_msg_t *' (aka 'struct wifi_msg *') [clang-diagnostic-format-pedantic]
+    LOG_ERR("msg at %p data is null", msg);
+                                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:646:40: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    wait_msgs->num_params_per_msg[idx] = num_params;
+                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:722:20: format string is not a string literal [clang-diagnostic-format-nonliteral]
+        sscanf(substr, wait_msgs->msgs[i], wait_msgs->param_ptrs[i][0]);
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:726:20: format string is not a string literal [clang-diagnostic-format-nonliteral]
+        sscanf(substr, wait_msgs->msgs[i], wait_msgs->param_ptrs[i][0],
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:731:20: format string is not a string literal [clang-diagnostic-format-nonliteral]
+        sscanf(substr, wait_msgs->msgs[i], wait_msgs->param_ptrs[i][0],
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:736:20: format string is not a string literal [clang-diagnostic-format-nonliteral]
+        sscanf(substr, wait_msgs->msgs[i], wait_msgs->param_ptrs[i][0],
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:742:20: format string is not a string literal [clang-diagnostic-format-nonliteral]
+        sscanf(substr, wait_msgs->msgs[i], wait_msgs->param_ptrs[i][0],
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:865:5: format specifies type 'void *' but the argument has type 'k_tid_t' (aka 'struct k_thread *') [clang-diagnostic-format-pedantic]
+        k_current_get(),
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi.c:964:22: comparison of integers of different signs: 'int' and 'unsigned int' [clang-diagnostic-sign-compare]
+     for (int i = 0; i < sizeof(aerrs)/sizeof(aerrs_t); i++) {
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:386:56: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                uint16_t topic_len = (data_ptr[1] << 8 | data_ptr[0]);
+                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:387:54: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                uint16_t msg_len = (data_ptr[3] << 8 | data_ptr[2]);
+                                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:413:43: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                new_mqtt.payload_length = strlen(new_mqtt.payload);
+                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:438:21: 16 enumeration values not explicitly handled in switch: 'COMMAND_NO_OP', 'COMMAND_REBOOT', 'COMMAND_START'... [clang-diagnostic-switch-enum]
+            switch (cmdType) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:1031:24: implicit conversion loses integer precision: 'modem_message_type_t' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    cmd->messageType = type;
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:1032:26: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    cmd->messageHandle = newHandle;
+                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:1096:44: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int' [clang-diagnostic-sign-compare]
+        while((k_uptime_get() - startTime) < timeout) {
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:1140:62: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    int my_handle = modem_send_command(MESSAGE_TYPE_AT, cmd, strlen(cmd), true);
+                                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_spi.c:1144:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, buf, &len, 10000) == 0) {   // 10 sec timeout, thats a looooong time
+                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:24:31: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+        value = (int)(input * _pow + 0.5f);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:28:31: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+        value = (int)(input * _pow - 0.5f);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:92:80: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "LAT", round_float((gps_info->latitude / 1000000.0), 6));
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:92:89: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "LAT", round_float((gps_info->latitude / 1000000.0), 6));
+                                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:93:81: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "LONG", round_float((gps_info->longitude / 1000000.0), 6));
+                                                                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:93:91: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "LONG", round_float((gps_info->longitude / 1000000.0), 6));
+                                                                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:94:89: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "ALT", round_float((gps_info->altitude / 100.0), 2));
+                                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:95:68: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "CRON", gps_info->timestamp);
+                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:96:89: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+                cJSON_AddNumberToObject(gps_obj, "ACC", round_float((gps_info->accuracy / 100.0), 2));
+                                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/gps.c:100:38: comparison of integers of different signs: 'int16_t' (aka 'short') and 'unsigned int' [clang-diagnostic-sign-compare]
+                if (*remaining_space < strlen(tempSpace)) {
+                                     ^
+
+    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/storage/src/storage.c:105:11: variable 'sample_count' set but not used [clang-diagnostic-unused-but-set-variable]
+  uint16_t sample_count = 0;
+           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/storage/src/storage.c:168:14: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    end_byte = MIN(end, end_byte);
+               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/storage/src/storage.c:212:4: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+      LOG_HEXDUMP_INF(buf, rc, index);
+      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/storage/src/storage.c:236:23: implicit conversion loses integer precision: 'unsigned int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  rc = flash_area_open(id, &pfa);
+                       ^
+
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:719:18: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+      entry->rssi = rssi;
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:720:21: implicit conversion loses integer precision: 'int' to 'int8_t' (aka 'signed char') [clang-diagnostic-implicit-int-conversion]
+      entry->channel = freq_to_channel(freq);
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:730:22: implicit conversion loses integer precision: 'int' to 'int8_t' (aka 'signed char') [clang-diagnostic-implicit-int-conversion]
+        entry->channel = freq_to_channel(freq);
+                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:736:4: variable 'mode' set but not used [clang-diagnostic-unused-but-set-variable]
+      LOG_HEXDUMP_DBG(sub, strlen(sub), "data");
+      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:760:20: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  for (int i = 0; i < g_last_ssid_list.count; i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:796:14: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int' [clang-diagnostic-sign-compare]
+   if (uptime > (max_age_sec * 1000) && delta < max_age_sec) {
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:796:46: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int' [clang-diagnostic-sign-compare]
+   if (uptime > (max_age_sec * 1000) && delta < max_age_sec) {
+                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2286:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (sleep_state) {
+  ^
+
+[HIGH] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2470:51: variable 'op' may be uninitialized when used here [clang-diagnostic-conditional-uninitialized]
+    LOG_ERR("'%s'(%d) from %s", wstrerr(-ret), ret, op);
+                                                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2620:42: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        net_stage_ssid_for_saving(ssid, key, sec, keyidx, enc, hidden);
+                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2620:47: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        net_stage_ssid_for_saving(ssid, key, sec, keyidx, enc, hidden);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2620:55: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        net_stage_ssid_for_saving(ssid, key, sec, keyidx, enc, hidden);
+                                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2689:70: implicit conversion turns floating-point number into integer: 'float' to 'int' [clang-diagnostic-float-conversion]
+        sorted_ssids[ssids_in_scan].comparison_score = wifis->wifi[widx].rssi;
+                                                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2718:19: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+      zones[i].idx = i;
+                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:2789:18: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    zones[i].idx = i;
+                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_at.c:3000:26: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  cached_zones[idx].idx = idx;
+                          ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:518:20: Although the value stored to 'subtype' is used in the enclosing expression, the value is never actually read from 'subtype' [deadcode.DeadStores]
+    char *waketype = subtype += 7;
+                     ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:970:9: Value stored to 'reason' during its initialization is never read [deadcode.DeadStores]
+    char *reason = sub+10;
+          ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:972:4: Value stored to 'reason' is never read [deadcode.DeadStores]
+      reason = "DA gave no reason";
+      ^
+
+[HIGH] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1089:6: Null pointer passed as 1st argument to string comparison function [unix.cstring.NullArg]
+  if (strncmp(topicstr, "messages/", 9) != 0) {
+      ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1161:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+WFJAP:")) != NULL) {
+                ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1180:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+NWMQCL:1")) != NULL) {
+                ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1184:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+NWMQCL:0")) != NULL) {
+                ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1187:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+NWMQMSGSND")) != NULL) {
+                ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1208:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+NWHTCSTATUS:")) != NULL) {
+                ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1210:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+NWHTCDATA:")) != NULL) {
+                ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/net_mgr.c:1215:15: Although the value stored to 'sub' is used in the enclosing expression, the value is never actually read from 'sub' [deadcode.DeadStores]
+    } else if ((sub = strstr(msg->data, "\r\n+SSIDLIST:")) != NULL) {
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:32:1: missing field 'lock' initializer [clang-diagnostic-missing-field-initializers]
+K_MSGQ_DEFINE(ml_mesgq, sizeof(IMUData), 10, 4);
+^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:66:25: suggest braces around initialization of subobject [clang-diagnostic-missing-braces]
+    IMUData imu_sample = {0};
+                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:66:26: missing field 'timestamp' initializer [clang-diagnostic-missing-field-initializers]
+    IMUData imu_sample = {0};
+                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:68:29: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    imu_sample.imuValues[0] = MS2_TO_G(data.ax);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:68:43: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    imu_sample.imuValues[0] = MS2_TO_G(data.ax);
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:69:29: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    imu_sample.imuValues[1] = MS2_TO_G(data.ay);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:69:43: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    imu_sample.imuValues[1] = MS2_TO_G(data.ay);
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:70:29: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    imu_sample.imuValues[2] = MS2_TO_G(data.az);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:70:43: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    imu_sample.imuValues[2] = MS2_TO_G(data.az);
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:71:29: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    imu_sample.imuValues[3] = RAD_PER_SEC_TO_DEG_PER_SEC(data.gx);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:71:61: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    imu_sample.imuValues[3] = RAD_PER_SEC_TO_DEG_PER_SEC(data.gx);
+                                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:72:29: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    imu_sample.imuValues[4] = RAD_PER_SEC_TO_DEG_PER_SEC(data.gy);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:72:61: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    imu_sample.imuValues[4] = RAD_PER_SEC_TO_DEG_PER_SEC(data.gy);
+                                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:73:29: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    imu_sample.imuValues[5] = RAD_PER_SEC_TO_DEG_PER_SEC(data.gz);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:73:61: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    imu_sample.imuValues[5] = RAD_PER_SEC_TO_DEG_PER_SEC(data.gz);
+                                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:90:5: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        imu_sample.imuValues[0], imu_sample.imuValues[1], imu_sample.imuValues[2],
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:90:30: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        imu_sample.imuValues[0], imu_sample.imuValues[1], imu_sample.imuValues[2],
+                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:90:55: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        imu_sample.imuValues[0], imu_sample.imuValues[1], imu_sample.imuValues[2],
+                                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:91:5: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        imu_sample.imuValues[3], imu_sample.imuValues[4], imu_sample.imuValues[5]);
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:91:30: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        imu_sample.imuValues[3], imu_sample.imuValues[4], imu_sample.imuValues[5]);
+                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:91:55: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        imu_sample.imuValues[3], imu_sample.imuValues[4], imu_sample.imuValues[5]);
+                                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:144:62: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    ACTIVITY_STR(result.pred_class), result.pred_class, result.pred_reps);
+                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:146:10: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    result.accel_mag_mean_val, result.accel_mag_sd_val,
+           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:146:37: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    result.accel_mag_mean_val, result.accel_mag_sd_val,
+                                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:147:10: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    result.gyro_mag_mean_val, result.gyro_mag_sd_val);
+           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:147:36: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    result.gyro_mag_mean_val, result.gyro_mag_sd_val);
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:215:81: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+      ACTIVITY_STR(result._Inference_activity), result._Inference_activity, result._Inference_reps);
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:217:11: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+      result._Inference_am, result._Inference_as,
+             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:217:33: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+      result._Inference_am, result._Inference_as,
+                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:218:11: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+      result._Inference_gm, result._Inference_gs);
+             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:218:33: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+      result._Inference_gm, result._Inference_gs);
+                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:265:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(init, NULL, "Initialize ml subsystem", ml_init_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:266:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(print, NULL, "Print (and drain) the ml queue", ml_print_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:267:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(start, NULL, "Start ml subsystem", ml_start_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:268:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(stop, NULL, "Stop ml subsystem", ml_stop_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:269:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(test, NULL, "Feed test vectors to library", ml_test_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:270:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(verbose, NULL, "ML toggle verbosity", ml_verbose_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:271:2: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(version, NULL, "Print version of ML library", ml_version_shell),
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:272:2: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_SUBCMD_SET_END);
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/ml/src/ml.cpp:274:1: missing field 'padding' initializer [clang-diagnostic-missing-field-initializers]
+SHELL_CMD_REGISTER(ml, &sub_ml, "Commands to work with the ML subsystem", NULL);
+^
+
+LOG_MODULE_REGISTER(log_telem, CONFIG_LOG_TELEM_LOG_LEVEL);
+^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/log_telemetry.c:110:34: comparison of integers of different signs: 'int16_t' (aka 'short') and 'unsigned int' [clang-diagnostic-sign-compare]
+            if (*remaining_space < strlen(tempSpace)) {
+                                 ^             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:149:31: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+        value = (int)(input * _pow + 0.5f);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:153:31: implicit conversion from 'int' to 'float' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+        value = (int)(input * _pow - 0.5f);
+                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:177:78: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    all_ok &= (bool) cJSON_AddNumberToObject(newEntry, "signalStrength", data->rssi);
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:181:36: comparison of integers of different signs: 'int16_t' (aka 'short') and 'unsigned int' [clang-diagnostic-sign-compare]
+    if (!all_ok || (*remaining_space < strlen(tempSpace))) {
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:260:45: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(xtrObject, "CRON", get_unix_time());
+                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:295:48: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    cJSON_AddNumberToObject(dbgObject, "UPTIME", k_uptime_get());
+                                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:347:88: implicit conversion loses integer precision: 'unsigned int' to 'int16_t' (aka 'short') [clang-diagnostic-implicit-int-conversion]
+  int16_t remaining_json_size = (CONFIG_MAX_MQTT_MSG_SIZE - A_LITTE_PADDING_TO_BE_SAFE) - strlen(json_message_buffer);
+                                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:459:21: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (int i = 0; i < extra->num; i++) {
+                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:533:17: implicit conversion turns floating-point number into integer: 'double' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-float-conversion]
+    doc->S_Norm = cJSON_GetNumberValue(obj);
+                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:546:16: implicit conversion turns floating-point number into integer: 'double' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-float-conversion]
+    doc->S_FMD = cJSON_GetNumberValue(obj);
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:559:17: implicit conversion turns floating-point number into integer: 'double' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-float-conversion]
+    doc->T_Norm = cJSON_GetNumberValue(obj);
+                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:572:16: implicit conversion turns floating-point number into integer: 'double' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-float-conversion]
+    doc->T_FMD = cJSON_GetNumberValue(obj);
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:585:14: implicit conversion turns floating-point number into integer: 'double' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-float-conversion]
+    doc->Rec = cJSON_GetNumberValue(obj);
+               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:598:12: implicit conversion turns floating-point number into integer: 'double' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-float-conversion]
+    doc->Q = cJSON_GetNumberValue(obj);
+             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:633:36: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [clang-diagnostic-float-conversion]
+    doc->fota_in_progress_duration = cJSON_GetNumberValue(obj);
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:638:26: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [clang-diagnostic-float-conversion]
+    doc->gps_poll_period = cJSON_GetNumberValue(obj);
+                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:652:13: implicit conversion turns floating-point number into integer: 'double' to 'int' [clang-diagnostic-float-conversion]
+      int di = cJSON_GetNumberValue(iobj);
+               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:665:25: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+      doc->zones[di].idx = di;
+                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:902:39: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(mpl, "CRON", time);
+                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:942:44: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(plObject, "CRON", get_unix_time());
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1006:44: implicit conversion from 'int64_t' (aka 'long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  ret = cJSON_AddNumberToObject(resp, "TS", timeStamp);
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1078:44: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(plObject, "CRON", get_unix_time());
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1084:88: implicit conversion loses integer precision: 'unsigned int' to 'int16_t' (aka 'short') [clang-diagnostic-implicit-int-conversion]
+  int16_t remaining_json_size = (CONFIG_MAX_MQTT_MSG_SIZE - A_LITTE_PADDING_TO_BE_SAFE) - strlen(json_message_buffer);
+                                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1091:50: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    cJSON_AddNumberToObject(plObject, "SSID_CRON", g_last_ssid_scan_time);
+                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1396:53: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(encodeTop, "exp", currTime + (15 * 60));  // now + 5 mins
+                                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1399:44: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(encodeTop, "iat", currTime);
+                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1475:40: result of integer division used in a floating point context; possible loss of precision [bugprone-integer-division]
+  cJSON_AddNumberToObject(ml_obj, "ST", start_time / 1000);
+                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1475:51: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+  cJSON_AddNumberToObject(ml_obj, "ST", start_time / 1000);
+                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1499:45: result of integer division used in a floating point context; possible loss of precision [bugprone-integer-division]
+    cJSON_AddNumberToObject(ml_inf_obj, "ST", ml_info._Inference_start / 1000);
+                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1499:70: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    cJSON_AddNumberToObject(ml_inf_obj, "ST", ml_info._Inference_start / 1000);
+                                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1500:45: result of integer division used in a floating point context; possible loss of precision [bugprone-integer-division]
+    cJSON_AddNumberToObject(ml_inf_obj, "TS", (ml_info._Inference_end - ml_info._Inference_start)/ 1000);
+                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1500:96: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    cJSON_AddNumberToObject(ml_inf_obj, "TS", (ml_info._Inference_end - ml_info._Inference_start)/ 1000);
+                                                                                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1520:24: comparison of integers of different signs: 'int16_t' (aka 'short') and 'unsigned int' [clang-diagnostic-sign-compare]
+    if (*remaining_space < strlen(tempSpace) + MIN_SPACE_FOR_ET_FIELD ) {
+                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1542:41: result of integer division used in a floating point context; possible loss of precision [bugprone-integer-division]
+    cJSON_AddNumberToObject(ml_obj, "ET", end_time / 1000);
+                                          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/json/src/d1_json.c:1542:50: implicit conversion from 'uint64_t' (aka 'unsigned long long') to 'double' may lose precision [clang-diagnostic-implicit-int-float-conversion]
+    cJSON_AddNumberToObject(ml_obj, "ET", end_time / 1000);
+                                                   
+                                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:224:56: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        LOG_ERR("Battery Temp out of range: %f", batt_info.temp);
+                                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:229:54: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+    float min_v_for_9160 = CONFIG_MIN_VOLTAGE_FOR_9160 / 10.0;
+                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:240:79: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        LOG_ERR("Battery Voltage too low for 9160, turning it off: %f", batt_info.voltage);
+                                                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:248:22: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    else if (batt_info.voltage > (min_v_for_9160 + 0.1)) { // added some pad to prevent rapid on/off
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:248:33: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    else if (batt_info.voltage > (min_v_for_9160 + 0.1)) { // added some pad to prevent rapid on/off
+                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:250:78: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+        LOG_INF("Battery Voltage is good for 9160, turning it on: %f", batt_info.voltage);
+                                                                                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:600:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (pwr_switch) {
+  ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:793:2: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  switch (buf[0]) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic.c:793:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (buf[0]) {
+  ^            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:103:14: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+  sample.ax = sensor_value_to_double(&x);
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:104:14: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+  sample.ay = sensor_value_to_double(&y);
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:105:14: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+  sample.az = sensor_value_to_double(&z);
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:106:14: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+  sample.gx = sensor_value_to_double(&gx);
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:107:14: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+  sample.gy = sensor_value_to_double(&gy);
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:108:14: implicit conversion loses floating-point precision: 'double' to 'float' [clang-diagnostic-implicit-float-conversion]
+  sample.gz = sensor_value_to_double(&gz);
+              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:125:10: enumeration value 'IMU_ODR_MAX_HZ' not explicitly handled in switch [clang-diagnostic-switch-enum]
+  switch (rate) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:200:100: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  printk("%lld, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, // %s\n", utils_get_currentmillis(), data.ax, data.ay, data.az, data.gx, data.gy,
+                                                                                                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:200:109: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  printk("%lld, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, // %s\n", utils_get_currentmillis(), data.ax, data.ay, data.az, data.gx, data.gy,
+                                                                                                             ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:200:118: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  printk("%lld, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, // %s\n", utils_get_currentmillis(), data.ax, data.ay, data.az, data.gx, data.gy,
+                                                                                                                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:200:127: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  printk("%lld, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, // %s\n", utils_get_currentmillis(), data.ax, data.ay, data.az, data.gx, data.gy,
+                                                                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:200:136: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  printk("%lld, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, %+.5f, // %s\n", utils_get_currentmillis(), data.ax, data.ay, data.az, data.gx, data.gy,
+                                                                                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:201:8: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+    data.gz, is_sleeping ? "sleeping" : "awake");
+         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:365:2: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_SUBCMD_SET_END);
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/nrf53_upgrade.c:47:18: comparison of integers of different signs: 'off_t' (aka 'long') and 'unsigned int' [clang-diagnostic-sign-compare]
+    if (end - addr < sizeof(data)) {
+                   ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/nrf53_upgrade.c:101:2: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  switch (swap_type) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/nrf53_upgrade.c:101:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (swap_type) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x_trigger.c:184:21: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  val.sleep_change = enable;
+                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x_trigger.c:194:22: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    val.sleep_change = enable;
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/lib/drivers/sensor/lsm6dsv16x-d1/lsm6dsv16x_trigger.c:206:22: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    val.sleep_change = enable;
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:139:21: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (int i = 0; i < (len - 1); i++) {
+                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:156:20: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  for (int i = 0; i < len; i++) {
+                    ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:411:2: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  switch (mode) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:411:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (mode) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:545:6: variable 'printctl' set but not used [clang-diagnostic-unused-but-set-variable]
+  int printctl = 0;
+      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:642:6: variable 'ms' set but not used [clang-diagnostic-unused-but-set-variable]
+  int ms = 200;
+      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:686:47: implicit conversion loses integer precision: 'unsigned long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  int ret = rm_connect_to_AP(argv[1], argv[2], strtoul(argv[3], NULL, 10),
+                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:687:12: implicit conversion loses integer precision: 'unsigned long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+               strtoul(argv[4], NULL, 10), strtoul(argv[5], NULL, 10));
+               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:687:40: implicit conversion loses integer precision: 'unsigned long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+               strtoul(argv[4], NULL, 10), strtoul(argv[5], NULL, 10));
+                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:746:19: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (i = 0; ((i < (len - 1)) && (shell_bypass_idx < SHELL_BYPASS_BUF_LEN - 1)); i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1091:21: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (int i = 0; i < list->count; i++) {
+                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1128:15: variable 'num_topics' set but not used [clang-diagnostic-unused-but-set-variable]
+  int ret = 0, num_topics = 0;
+               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1177:16: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  for (i = 0; i < (argc-1); i++) {
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1296:28: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  ret = wifi_set_mqtt_state(new_state, K_SECONDS(1));
+                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1321:31: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  if (wifi_set_mqtt_boot_state(new_state, K_MSEC(600)) != 0) {
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1364:7: implicit conversion loses integer precision: 'unsigned long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            strtoul(argv[5], NULL, 10),
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1365:7: implicit conversion loses integer precision: 'unsigned long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            strtoul(argv[6], NULL, 10),
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1366:7: implicit conversion loses integer precision: 'unsigned long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            strtoul(argv[7], NULL, 10),
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1421:21: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    for (int i = 0; i < g_last_ssid_list.count; i++) {
+                      ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1543:20: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+  for (int i = 0; i < g_last_ssid_list.count; i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1545:62: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+      g_last_ssid_list.wifi[i].macstr, g_last_ssid_list.wifi[i].rssi,
+                                                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:1631:2: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_SUBCMD_SET_END);
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_priv.h:345:17: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        *dest = tmp;
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:206:17: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        *flag = boot_flag_decode(*flag);
+                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:236:24: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        state->magic = boot_magic_decode(magic);
+                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:269:26: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    rc = flash_area_open(flash_area_id, &fap);
+                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:386:5: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    BOOT_SET_SWAP_INFO(swap_info, image_num, swap_type);
+    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:539:58: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+                rc = boot_write_swap_info(fa, swap_type, flash_area_to_image(fa));
+                                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:661:26: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    rc = flash_area_open(FLASH_AREA_IMAGE_SECONDARY(image_index), &fap);
+                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/bootloader/mcuboot/boot/bootutil/src/bootutil_public.c:706:26: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    rc = flash_area_open(FLASH_AREA_IMAGE_PRIMARY(image_index), &fap);
+                         ^
+
+[HIGH] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/build/modules/libmetal/libmetal/lib/include/metal/utilities.h:94:37: Array access (from variable 'bitmap') results in a null pointer dereference [core.NullDereference]
+  bitmap[bit / METAL_BITS_PER_ULONG] &=
+                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota_shell.c:34:9: variable 'ret' set but not used [clang-diagnostic-unused-but-set-variable]
+    int ret;
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota_shell.c:52:5: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+    SHELL_SUBCMD_SET_END
+    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_init.c:30:71: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    my_handle = modem_send_command(MESSAGE_TYPE_AT, (uint8_t *)rffe[i], strlen(rffe[i]),
+                                                                        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/modem/src/modem_init.c:34:23: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    if (modem_recv_resp(my_handle, resp_buf, &resp_len, 1000) ==
+                        ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota_shell.c:40:5: Value stored to 'ret' is never read [deadcode.DeadStores]
+    ret = fs_write(&update_notes, file_data, strlen(file_data));
+    ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota_shell.c:42:5: Value stored to 'ret' is never read [deadcode.DeadStores]
+    ret = fs_write(&update_notes, file_data, strlen(file_data));
+    ^                                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/fqueue/src/fqueue.c:406:2: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_SUBCMD_SET_END);
+  ^
+
+[HIGH] /opt/nordic/ncs/toolchains/20d68df7e5/opt/zephyr-sdk/arm-zephyr-eabi/arm-zephyr-eabi/include/ssp/string.h:86:1: Null pointer passed as 1st argument to memory set function [unix.cstring.NullArg]
+__ssp_bos_icheck3(memset, void *, int)
+^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:67:17: implicit conversion loses integer precision: 'long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  uint16_t reg = strtol(argv[1], NULL, 16);
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:75:17: implicit conversion loses integer precision: 'long' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+  uint16_t reg = strtol(argv[1], NULL, 16);
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:76:17: implicit conversion loses integer precision: 'long' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+  uint8_t data = strtol(argv[2], NULL, 16);
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:100:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Voltage:         %.3f V", info.voltage);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:101:51: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Current:         %.3f mA", info.current);
+                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:102:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Temp:            %.2f C", info.temp);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:104:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Charge Level   : %.2f%%", info.soc);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:105:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Time Till Empty: %.2f s", info.tte);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:106:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Time Till Full:  %.2f s", info.ttf);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:143:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Voltage:         %.3f V", info.voltage);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:144:51: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Current:         %.3f mA", info.current);
+                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:145:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Temp:            %.2f C", info.temp);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:147:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Charge Level   : %.2f%%", info.soc);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:148:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Time Till Empty: %.2f s", info.tte);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:149:50: implicit conversion increases floating-point precision: 'float' to 'double' [clang-diagnostic-double-promotion]
+  shell_print(sh, "Time Till Full:  %.2f s", info.ttf);
+                                                  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:158:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch(pstate) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_shell.c:198:59: missing field 'help' initializer [clang-diagnostic-missing-field-initializers]
+  SHELL_CMD(status, NULL, "PMIC status", pmic_status_cmd), SHELL_SUBCMD_SET_END);
+                                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:139:18: overlapping comparisons always evaluate to false [clang-diagnostic-tautological-overlap-compare]
+    if (dur <= 0 && dur > 200) {
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:139:18: logical expression is always false [misc-redundant-expression]
+    if (dur <= 0 && dur > 200) {
+                 ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:144:13: comparison of integers of different signs: 'int' and 'uint32_t' (aka 'unsigned int') [clang-diagnostic-sign-compare]
+    if (dur != shadow_doc.fota_in_progress_duration) {
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:192:42: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        nrf5340_fota.target_version[0] = atoi(token);
+                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:196:42: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        nrf5340_fota.target_version[1] = atoi(token);
+                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:200:42: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+        nrf5340_fota.target_version[2] = atoi(token);
+                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:242:9: variable 'ret' set but not used [clang-diagnostic-unused-but-set-variable]
+    int ret;
+        ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:332:86: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int64_t' (aka 'long long') [clang-diagnostic-sign-compare]
+            if ((nrf9160_fota.last_state_time + (FOTA_STATE_MAX_TIME_IN_SEC * 1000)) < k_uptime_get()) {
+                                                                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:368:86: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int64_t' (aka 'long long') [clang-diagnostic-sign-compare]
+            if ((da16200_fota.last_state_time + (FOTA_STATE_MAX_TIME_IN_SEC * 1000)) < k_uptime_get()) {
+                                                                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:404:86: comparison of integers of different signs: 'uint64_t' (aka 'unsigned long long') and 'int64_t' (aka 'long long') [clang-diagnostic-sign-compare]
+            if ((nrf5340_fota.last_state_time + (FOTA_STATE_MAX_TIME_IN_SEC * 1000)) < k_uptime_get()) {
+                                                                                     ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:537:58: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        char* fota_request = json_fota_check(machine_id, major, minor, patch, nonce, device_type);
+                                                         ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:537:65: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        char* fota_request = json_fota_check(machine_id, major, minor, patch, nonce, device_type);
+                                                                ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:537:72: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        char* fota_request = json_fota_check(machine_id, major, minor, patch, nonce, device_type);
+                                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:538:47: format string is not a string literal [clang-diagnostic-format-nonliteral]
+        int len = snprintf(msg_send_buf, 512, fota_request, machine_id, CONFIG_IOT_MQTT_BRAND_ID);
+                                              ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:574:61: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+        if ((ret = commMgr_queue_mqtt_message(msg_send_buf, len, MQTT_MESSAGE_TYPE_FOTA, 0, 1)) < 0) {
+                                                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:626:29: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+    uint8_t results_count = cJSON_GetArraySize(m_al);
+                            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:717:32: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+                ver_array[0] = atoi(mtd_major->valuestring);
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:718:32: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+                ver_array[1] = atoi(mtd_minor->valuestring);
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:719:32: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [clang-diagnostic-implicit-int-conversion]
+                ver_array[2] = atoi(mtd_patch->valuestring);
+                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:741:92: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                        if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30);}
+                                                                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:749:72: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                            int ret = modem_fota_from_https(final_url, strlen(final_url));
+                                                                       ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:768:92: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                        if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30);}
+                                                                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:796:92: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                        if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30);}
+                                                                                           ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:851:84: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:857:84: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:863:84: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:875:84: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:882:84: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:890:84: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:913:68: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                 ret = commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 1);
+                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:926:68: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                 ret = commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 1);
+                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:940:68: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+                 ret = commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 1);
+                                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:959:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:966:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:974:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:982:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:989:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                               ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/comm_mgr/src/fota.c:996:80: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+            if (validiation_msg) { commMgr_queue_mqtt_message(validiation_msg, strlen(validiation_msg), MQTT_MESSAGE_TYPE_FOTA_LIFE, 0, 30); }
+                                                                               ^
+
+
+[HIGH] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:181:2: Branch condition evaluates to a garbage value [core.uninitialized.Branch]
+  LOG_WRN("Now %s", sleep_state.val1 ? "Sleeping" : "Awake");
+  ^
+
+[HIGH] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/imu/src/imu.c:182:12: Assigned value is garbage or undefined [core.uninitialized.Assign]
+  is_asleep = sleep_state.val1;
+            ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/uicr/src/uicr.c:59:20: comparison of integers of different signs: 'int' and 'unsigned int' [clang-diagnostic-sign-compare]
+  for (int i = 0; i < sizeof(uicr_storage_struct_t) / sizeof(uint32_t); i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/uicr/src/uicr.c:77:20: comparison of integers of different signs: 'int' and 'unsigned int' [clang-diagnostic-sign-compare]
+  for (int i = 0; i < sizeof(uicr_storage_struct_t) / sizeof(uint32_t); i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/uicr/src/uicr.c:129:51: comparison of integers of different signs: 'const uint32_t' (aka 'const unsigned int') and 'int' [clang-diagnostic-sign-compare]
+  if (singleton_uicr_storage->da16200_tuning_value == -1) {
+                                                   ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/uicr/src/uicr.c:500:20: comparison of integers of different signs: 'int' and 'unsigned int' [clang-diagnostic-sign-compare]
+  for (int i = 0; i < sizeof(uicr_storage_struct_t) / sizeof(uint32_t); i++) {
+                    ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/uicr/src/uicr.c:508:24: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [clang-diagnostic-implicit-int-conversion]
+    uicr_test_flag_set(i * 11);
+                         ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_spi.c:306:2: Value stored to 'ret' is never read [deadcode.DeadStores]
+  ret = wifi_init_new_msg(&msg, true, alloc_len);
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:36:2: 'switch' missing 'default' label [clang-diagnostic-switch-default]
+  switch (color) {
+  ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:72:10: 5 enumeration values not explicitly handled in switch: 'LED_API_IDLE', 'LED_API_ERROR', 'LED_BLE_ADV_DONE'... [clang-diagnostic-switch-enum]
+  switch (led_api_state) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:98:10: enumeration values 'LED_BLE_ADV_DONE', 'LED_CHARGED', and 'LED_VBUS_REMOVED' not explicitly handled in switch [clang-diagnostic-switch-enum]
+  switch (led_api_state) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:147:10: 8 enumeration values not explicitly handled in switch: 'LED_API_IDLE', 'LED_API_ERROR', 'LED_BLE_ADV_DONE'... [clang-diagnostic-switch-enum]
+  switch (led_api_state) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:161:10: 8 enumeration values not explicitly handled in switch: 'LED_API_IDLE', 'LED_API_ERROR', 'LED_BLE_ADV'... [clang-diagnostic-switch-enum]
+  switch (led_api_state) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:174:10: 7 enumeration values not explicitly handled in switch: 'LED_API_IDLE', 'LED_API_ERROR', 'LED_BLE_ADV'... [clang-diagnostic-switch-enum]
+  switch (led_api_state) {
+          ^
+
+[MEDIUM] /Users/stevereed/Code/Culvert/purina/purina-d1.git/c_modules/pmic/src/pmic_leds.c:190:10: 7 enumeration values not explicitly handled in switch: 'LED_API_IDLE', 'LED_API_ERROR', 'LED_BLE_ADV'... [clang-diagnostic-switch-enum]
+  switch (led_api_state) {
+          ^
+
+
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:562:3: Value stored to 'printctl' is never read [deadcode.DeadStores]
+    printctl = 1;
+    ^
+
+[LOW] /Users/stevereed/Code/Culvert/purina/purina-d1.git/commercial_collar/src/wifi/src/wifi_shell.c:645:3: Value stored to 'ms' is never read [deadcode.DeadStores]
+    ms = strtol(argv[1], NULL, 10);
+    ^
+
+
+----==== Severity Statistics ====----
+-------------------------------
+Severity    | Number of reports
+-------------------------------
+MEDIUM      |              5330
+LOW         |               497
+HIGH        |                67
+UNSPECIFIED |                 8
+CRITICAL    |                25
+-------------------------------
+----=================----
+
+----==== Checker Statistics ====----
+--------------------------------------------------------------------------------
+Checker name                                   | Severity    | Number of reports
+--------------------------------------------------------------------------------
+clang-diagnostic-reserved-macro-identifier     | MEDIUM      |               851
+clang-diagnostic-reserved-identifier           | MEDIUM      |              1273
+misc-header-include-cycle                      | LOW         |               384
+clang-diagnostic-implicit-int-conversion       | MEDIUM      |               484
+clang-diagnostic-sign-compare                  | MEDIUM      |               134
+clang-diagnostic-unused-parameter              | MEDIUM      |               600
+deadcode.DeadStores                            | LOW         |                76
+readability-suspicious-call-argument           | LOW         |                 5
+misc-misplaced-const                           | LOW         |                11
+clang-diagnostic-missing-field-initializers    | MEDIUM      |                54
+clang-diagnostic-switch-enum                   | MEDIUM      |                59
+clang-diagnostic-unused-but-set-variable       | MEDIUM      |                31
+misc-redundant-expression                      | MEDIUM      |                15
+unix.cstring.NullArg                           | HIGH        |                 4
+clang-diagnostic-format-pedantic               | MEDIUM      |               179
+clang-diagnostic-implicit-int-float-conversion | MEDIUM      |                28
+core.uninitialized.Assign                      | HIGH        |                17
+core.UndefinedBinaryOperatorResult             | HIGH        |                 5
+core.BitwiseShift                              | HIGH        |                 6
+clang-diagnostic-initializer-overrides         | HIGH        |                 1
+bugprone-too-small-loop-variable               | MEDIUM      |                12
+bugprone-switch-missing-default-case           | LOW         |                21
+clang-diagnostic-switch-default                | MEDIUM      |                26
+cert-err33-c                                   | MEDIUM      |                 2
+clang-diagnostic-embedded-directive            | MEDIUM      |                75
+clang-diagnostic-unused-function               | MEDIUM      |                 2
+clang-diagnostic-float-conversion              | MEDIUM      |                16
+cppcheck-normalCheckLevelMaxBranches           | UNSPECIFIED |                 7
+clang-diagnostic-format-nonliteral             | MEDIUM      |                13
+clang-diagnostic-double-promotion              | MEDIUM      |                55
+clang-diagnostic-error                         | CRITICAL    |                25
+core.CallAndMessage                            | HIGH        |                 4
+cppcheck-uninitvar                             | HIGH        |                 2
+clang-diagnostic-implicit-float-conversion     | MEDIUM      |              1363
+clang-diagnostic-implicit-fallthrough          | MEDIUM      |                18
+misc-non-copyable-objects                      | HIGH        |                 5
+clang-diagnostic-implicit-function-declaration | HIGH        |                 3
+clang-diagnostic-missing-braces                | MEDIUM      |                 3
+core.NullDereference                           | HIGH        |                10
+cppcheck-objectIndex                           | HIGH        |                 1
+cppcheck-shiftTooManyBitsSigned                | HIGH        |                 1
+clang-diagnostic-conditional-uninitialized     | HIGH        |                 7
+cppcheck-identicalConditionAfterEarlyExit      | MEDIUM      |                 1
+bugprone-signed-char-misuse                    | MEDIUM      |                 5
+clang-diagnostic-incompatible-pointer-types    | MEDIUM      |                 1
+bugprone-integer-division                      | MEDIUM      |                 4
+cppcheck-nullPointerRedundantCheck             | MEDIUM      |                14
+cppcheck-nullPointerArithmeticRedundantCheck   | MEDIUM      |                 1
+cppcheck-ctunullpointer                        | UNSPECIFIED |                 1
+clang-diagnostic-tautological-overlap-compare  | MEDIUM      |                 1
+clang-diagnostic-static-in-inline              | MEDIUM      |                 4
+core.uninitialized.Branch                      | HIGH        |                 1
+clang-diagnostic-self-assign                   | MEDIUM      |                 5
+bugprone-inc-dec-in-conditions                 | MEDIUM      |                 1
+--------------------------------------------------------------------------------
+----=================----
+
+----==== File Statistics ====----
+-----------------------------------------------------
+File name                         | Number of reports
+-----------------------------------------------------
+nrfx_utils_internal.h             |               369
+compiler_abstraction.h            |                10
+nrf5340_application.h             |                10
+nrf5340_application_bitfields.h   |                 1
+nrf5340_application_peripherals.h |                 1
+cpu.h                             |                 1
+memory_map.h                      |                32
+exc.h                             |                11
+irq.h                             |                 1
+arm_mpu_v8.h                      |                 1
+syscall.h                         |                 4
+thread.h                          |                 5
+structs.h                         |                 2
+memory-attr.h                     |                12
+irq.h                             |                 8
+kernel.h                          |                24
+sched_priq.h                      |                 2
+thread.h                          |                 7
+kernel_structs.h                  |                19
+devicetree_regions.h              |                15
+section_tags.h                    |                39
+sections.h                        |                34
+log.h                             |                 6
+log_core.h                        |                24
+sw_isr_table.h                    |                 6
+__assert.h                        |                10
+arch_interface.h                  |                 9
+cbprintf_internal.h               |                 1
+dlist.h                           |                 5
+rb.h                              |                 2
+sflist.h                          |                 2
+slist.h                           |                 2
+time_units.h                      |                22
+util.h                            |                 4
+util_internal.h                   |                 6
+sys_clock.h                       |                 2
+syscall.h                         |                 1
+common.h                          |                 6
+gcc.h                             |                29
+llvm.h                            |                 8
+zephyr_stdint.h                   |                36
+tracing.h                         |               155
+tracking.h                        |               155
+soc_nrf_common.h                  |                19
+soc.h                             |                 1
+settings_file.h                   |                 1
+settings_file.c                   |                 8
+settings_priv.h                   |                 1
+system_nrf5340_application.c      |                 2
+nrfx_power_clock.h                |                 2
+rb.c                              |                 2
+multi_heap.c                      |                 1
+log_backend.h                     |                 2
+log_output.h                      |                 2
+shell_cmds.c                      |                19
+nrfx_clock.h                      |                 1
+clock_control_nrf.c               |                14
+device.h                          |               162
+cmsis_core_m.h                    |                 2
+bootutil_public.c                 |                11
+kernel_arch_data.h                |                 3
+wait_q.h                          |                 1
+ksched.h                          |                 2
+wifi_at.c                         |                35
+rpmsg.c                           |                12
+buf.h                             |                 1
+buf.h                             |                 6
+byteorder.h                       |                17
+smp.h                             |                 1
+rpmsg.h                           |                 1
+rpmsg_virtio.h                    |                 1
+virtio.h                          |                 1
+alloc.h                           |                 1
+assert.h                          |                 1
+atomic.h                          |                 1
+cache.h                           |                 1
+compiler.h                        |                 1
+compiler.h                        |                 2
+config.h                          |                 1
+cpu.h                             |                 1
+device.h                          |                 1
+dma.h                             |                 1
+errno.h                           |                 1
+io.h                              |                 1
+list.h                            |                 3
+log.h                             |                 1
+mutex.h                           |                 1
+cpu.h                             |                 1
+spinlock.h                        |                 1
+sys.h                             |                 2
+alloc.h                           |                 1
+assert.h                          |                 1
+cache.h                           |                 3
+io.h                              |                 1
+log.h                             |                 1
+mutex.h                           |                 7
+sys.h                             |                 1
+utilities.h                       |                 2
+cache.h                           |                 1
+watchdog_shell.c                  |                 2
+offsets.h                         |                31
+sensor.h                          |                66
+linker-defs.h                     |                44
+rtio.h                            |                 3
+bitarray.h                        |                 1
+mem_blocks.h                      |                 2
+lsm6dsv16x_reg.c                  |                16
+nrfy_gpiote.h                     |                 8
+shell_log_backend.c               |                 3
+d1_json.h                         |                 1
+uicr.h                            |                 1
+ble.c                             |                10
+gatt.h                            |                 3
+zbus.h                            |                10
+log_link.h                        |                 1
+log_mgmt.c                        |                32
+net_mgr.h                         |                 2
+net_mgr.c                         |                35
+nrf5340_cpunet_reset.c            |                 4
+compiler_stack_protect.c          |                 2
+stream_flash.c                    |                 7
+time.h                            |                 1
+rpmsg_virtio.c                    |                 5
+uart_console.c                    |                 6
+radioMgr.c                        |                22
+isr_tables.c                      |                 2
+mpsl_fem_nrf21540_gpio.c          |                 1
+gpio.h                            |                 2
+lsm6dsv16x.c                      |                25
+i2c.h                             |                 1
+cJSON_Utils.c                     |                 1
+aes.h                             |                 3
+constants.h                       |                 1
+hmac.h                            |                 1
+hmac_prng.h                       |                 1
+sha256.h                          |                 1
+utils.h                           |                 6
+crypto.c                          |                 3
+commMgr.c                         |                78
+net_ip.h                          |                91
+posix_types.h                     |                 3
+time.h                            |                 1
+static_vrings.h                   |                 1
+ipc_rpmsg_static_vrings.c         |                16
+date_service.c                    |                 4
+log.c                             |                 1
+zcbor_bulk.c                      |                 1
+l2cap.c                           |                71
+stack.h                           |                 4
+kernel_service.c                  |                20
+flash_map.c                       |                 1
+regulator_shell.c                 |                 6
+hmac.c                            |                 1
+wdt_shell.c                       |                 8
+npm1300_charger.c                 |                15
+linear_range.h                    |                 3
+xip.c                             |                 1
+timeutil.c                        |                 5
+rpmsg_internal.h                  |                 1
+sleep.h                           |                 1
+sleep.h                           |                 2
+bt_crypto.h                       |                 1
+conn_internal.h                   |                 1
+smp.c                             |                35
+img_mgmt.c                        |                13
+virtqueue.c                       |                 2
+log_output.c                      |                 9
+timer.c                           |                 3
+wifi_spi.c                        |                12
+fault_injection_hardening.h       |                 2
+mcuboot_config.h                  |                 1
+printk.c                          |                13
+ipc_service.c                     |                 3
+bt.c                              |                89
+zcbor_decode.c                    |                 3
+regulator_npm1300.c               |                19
+modem_spi.c                       |                27
+cpp_ctors.c                       |                 3
+zcbor_encode.c                    |                 9
+flash_map_backend.h               |                 1
+rtio_init.c                       |                 5
+zbus_iterable_sections.c          |                 7
+smp.c                             |                 5
+fota.c                            |                51
+irq.c                             |                 1
+irq.h                             |                 1
+irq_controller.h                  |                 1
+irq.h                             |                 1
+utils.h                           |                 2
+log_core.c                        |                16
+onoff.c                           |                 1
+poll.c                            |                 1
+nrfy_wdt.h                        |                 4
+nrfx_log.h                        |                 3
+id.c                              |                13
+mbox_nrfx_ipc.c                   |                11
+swap.c                            |                 1
+init.c                            |                 1
+ncs_version.h                     |                 1
+version.h                         |                 1
+log_msg.c                         |                 4
+settings_line.c                   |                 5
+ecc.c                             |                 3
+nrf_qspi.h                        |                16
+jesd216.h                         |                 1
+nrf_qspi_nor.c                    |                17
+spi_nor.h                         |                 1
+modem.c                           |                25
+crc.h                             |                10
+audio.h                           |                 1
+bt.h                              |                 1
+ll.h                              |                 1
+nrfx_twim.c                       |                 2
+nrfy_twim.h                       |                 4
+device_service.c                  |                 3
+virtio.c                          |                 2
+sensor_shell.c                    |                21
+gatt_internal.h                   |                 7
+hci_core.c                        |                28
+condition.h                       |                 1
+condition.h                       |                 1
+nrfx_ipc.c                        |                 6
+shmem.h                           |                 1
+work.c                            |                 2
+led_npm1300.c                     |                 4
+cpp_init.c                        |                 2
+cmac_mode.h                       |                 1
+cmac_mode.c                       |                 2
+adv.c                             |                14
+shell_uart.c                      |                 6
+heap.h                            |                 1
+smp_bt.c                          |                13
+mem_slab.c                        |                 3
+tde_shell.c                       |                 7
+gatt.c                            |                56
+stat.h                            |                 8
+devmem_service.c                  |                10
+zcbor_common.c                    |                 1
+buf_simple.c                      |                46
+thread.c                          |                10
+nrfx_spim.c                       |                 4
+nrfy_spim.h                       |                 4
+zephyr_img_mgmt.c                 |                11
+nrfx_gpiote.c                     |                 3
+version_def.h                     |                 1
+bt_crypto.c                       |                 3
+configs.c                         |                 1
+buf.c                             |                16
+nrfx_flag32_allocator.c           |                 1
+modem_shell.c                     |                37
+ml.cpp                            |                68
+tracker_service.c                 |                49
+arm_core_mpu.c                    |                 7
+system_work_q.c                   |                 1
+init.c                            |                 1
+wdt_npm1300.c                     |                 3
+mcuboot_shell.c                   |                18
+flash_shell.c                     |                 9
+cJSON_os.c                        |                 1
+fqueue.h                          |                 1
+d1_time.c                         |                 7
+nrfx_clock.c                      |                 2
+entropy_cc3xx.c                   |                 2
+settings_store.c                  |                 5
+spi_context.h                     |                10
+spi_nrfx_spim.c                   |                31
+getopt.c                          |                 3
+getopt.h                          |                 1
+getopt_common.h                   |                 1
+heap-validate.c                   |                 1
+thread.c                          |                 3
+shell_ops.c                       |                 2
+zephyr_lfs_config.h               |                 3
+littlefs_fs.c                     |                20
+fs.c                              |                 5
+wifi.c                            |                17
+gpio_shell.c                      |                13
+hw_cc310.c                        |                 2
+aes_decrypt.c                     |                 1
+zbus.c                            |                13
+gps.c                             |                13
+storage.c                         |                19
+default_rtio_sensor.c             |                 6
+jesd216.c                         |                15
+att.c                             |                78
+nrfx_common.h                     |                 1
+nrfx_errors.h                     |                 1
+nrfx_ext.h                        |                 1
+nrfx_utils.h                      |                 1
+nrf_common.h                      |                 1
+nrfy_common.h                     |                 1
+nrf_peripherals.h                 |                 1
+nrfx.h                            |                 1
+zcbor_common.h                    |                 1
+zcbor_decode.h                    |                 1
+zcbor_encode.h                    |                 1
+zcbor_tags.h                      |                 1
+pm_config.h                       |                 1
+ml_decode.h                       |                 1
+ml_encode.h                       |                 1
+ml_types.h                        |                 9
+shell.h                           |                 1
+shell_fprintf.h                   |                 1
+shell_history.h                   |                 1
+shell_log_backend.h               |                 1
+shell_string_conv.h               |                 1
+shell_types.h                     |                 1
+nrfx_config.h                     |                 1
+nrfx_config_common.h              |                 1
+nrfx_config_nrf5340_application.h |                 1
+nrfx_glue.h                       |                 1
+login.h                           |                 1
+main.c                            |                12
+init.c                            |                15
+shell.c                           |                22
+log_telemetry.c                   |                 4
+fs_mgmt.c                         |                13
+libc-hooks.c                      |                41
+shell.c                           |                10
+lsm6dsv16x_reg.h                  |                 1
+gpio_nrfx.c                       |                 8
+fatal.c                           |                 4
+shell_history.c                   |                 1
+gpio_npm1300.c                    |                 4
+nrf_power.h                       |                 1
+d1_json.c                         |                40
+regulator_common.c                |                 1
+nrf_fuel_gauge.h                  |                 1
+battery_model.inc                 |              1344
+pmic.c                            |                19
+fqueue.c                          |                10
+imu.c                             |                35
+nrfy_timer.h                      |                 9
+uuid.c                            |                 4
+nrf53_upgrade.c                   |                 8
+lsm6dsv16x_trigger.c              |                 7
+wifi_shell.c                      |                71
+mpsc_pbuf.c                       |                 7
+keys.c                            |                15
+scb.c                             |                 2
+flash_map_layout.c                |                 3
+i2c_nrfx_twim.c                   |                15
+shell.c                           |                 9
+cbprintf_packaged.c               |                12
+conn.c                            |                44
+fault.c                           |                11
+arm_mpu.c                         |                 4
+arm_mpu_v8_internal.h             |                 9
+bootutil_priv.h                   |                 1
+mcuboot_logging.h                 |                 1
+pm_sysflash.h                     |                 3
+sysflash.h                        |                 1
+mutex.c                           |                17
+kheap.c                           |                 3
+mailbox.c                         |                 2
+i2c_common.c                      |                 4
+rand32_entropy_device.c           |                 1
+nrf_cc3xx_platform_abort_zephyr.c |                 1
+fota_shell.c                      |                11
+crc16_sw.c                        |                 6
+cJSON.c                           |                17
+utils.c                           |                 1
+cbprintf_complete.c               |                16
+shell_help.c                      |                 4
+clock.c                           |                 3
+led_shell.c                       |                19
+modem_init.c                      |                 2
+nrf_rtc_timer.c                   |                 5
+watchdog.c                        |                 5
+mempool.c                         |                 3
+mfd_npm1300.c                     |                 5
+wdt_nrfx.c                        |                 7
+mem_blocks.c                      |                 4
+nrf53_hooks.c                     |                 1
+nrfx_dppi.c                       |                 6
+self_check.c                      |                 3
+remoteproc_virtio.c               |                 2
+log_cmds.c                        |                19
+lfs.c                             |                25
+hex.c                             |                 1
+timeout.c                         |                12
+zbus_runtime_observers.c          |                 4
+rtio_executor.c                   |                 3
+l2cap.c                           |                28
+pinctrl_nrf.c                     |                 2
+ipc_static_vrings.c               |                 6
+string.h                          |                 1
+nrf_cc3xx_platform_mutex_zephyr.c |                 3
+arch.h                            |                 1
+arm_mpu_mem_cfg.h                 |                 1
+arm_mpu_regions.c                 |                 4
+data.c                            |                 3
+fatal.c                           |                 4
+settings.c                        |                 9
+pmic_shell.c                      |                34
+settings.c                        |                 5
+malloc.c                          |                 4
+entropy_bt_hci.c                  |                 4
+nrfx_qspi.c                       |                 1
+nrfx_timer.h                      |                 2
+uart_nrfx_uarte.c                 |                17
+sensor_decoders_init.c            |                 3
+soc.c                             |                 5
+isr_tables.c                      |                 1
+offsets_aarch32.c                 |                 1
+kernel_offsets.h                  |                 1
+mgmt.c                            |                 3
+sched.c                           |                51
+buf.c                             |                 4
+cpp_init_array.c                  |                 3
+led_gpio.c                        |                 5
+img_mgmt_state.c                  |                 7
+softirq.h                         |                 1
+fdtable.c                         |                 5
+errno.c                           |                 1
+crc8_sw.c                         |                 3
+d1_zbus.c                         |                21
+uicr.c                            |                59
+shell_utils.c                     |                13
+sync_rtc.c                        |                 5
+sys_clock_init.c                  |                 2
+device.c                          |                 5
+pmic_leds.c                       |                14
+aes_encrypt.c                     |                 1
+base64.c                          |                 1
+gatt.c                            |                37
+settings_shell.c                  |                 6
+utils.c                           |                 3
+cpp_dtors.c                       |                 2
+smp.c                             |                 2
+idle.c                            |                 3
+rpa.c                             |                 5
+boot_status.h                     |                 1
+os_mgmt.c                         |                 6
+flash_map_shell.c                 |                 7
+__aeabi_atexit.c                  |                 2
+i2c_shell.c                       |                15
+crc7_sw.c                         |                 1
+soc_flash_nrf.c                   |                15
+soc_flash_nrf.h                   |                 1
+bas.c                             |                 4
+assert.c                          |                 1
+-----------------------------------------------------
+----=================----
+
+----======== Summary ========----
+------------------------------------------------
+Number of processed analyzer result files | 995 
+Number of analyzer reports                | 5927
+------------------------------------------------
+----=================----

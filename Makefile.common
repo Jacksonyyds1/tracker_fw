@@ -1,0 +1,224 @@
+SHELL := /bin/bash
+
+PROJECT_ROOT := $(shell realpath $$PWD/..)
+WORKSPACE_ROOT := ${PROJECT_ROOT}/..
+PROJECT := $(shell basename $$PWD)
+
+# The 'default' signing key is for development, and is the same as the
+# MCUboot default key; SIGNING_KEY can also be set to the production key
+# The GitHub Actions workflow sets the SIGNING_KEY env var for production
+# signing.
+SIGNING_KEY_DEFAULT := ${PROJECT_ROOT}/meta/default-key.pem
+SIGNING_KEY ?= ${SIGNING_KEY_DEFAULT}
+# By default the standard goal is a signed mcuboot and signed application
+# However this can be overridden in individual sub projects
+
+GOAL ?= all
+.DEFAULT_GOAL = ${GOAL}
+
+#
+# private keys are one of two types: 2048 bit RSA, which has a size of 1679  bytes
+# or P256 ECDSA, which has a size of 241 bytes
+key_type=$(shell ${WORKSPACE_ROOT}/purina-d1-tools/make-helpers/key-type.sh ${SIGNING_KEY})
+ifeq (${key_type},P256)
+SIGNATURE_TYPE=-Dmcuboot_CONFIG_BOOT_SIGNATURE_TYPE_ECDSA_P256=y
+else
+SIGNATURE_TYPE=-Dmcuboot_CONFIG_BOOT_SIGNATURE_TYPE_RSA=y
+endif
+ifeq (${RELEASE},y)
+BUILD_TYPE=-DCONFIG_RELEASE_BUILD=y
+endif
+
+.PHONY: all
+all:
+	echo ROOT is ${PROJECT_ROOT}
+	@if [ -e src/include/app_version.h ]; then \
+		echo "rebuilding files depending on version.h"; \
+		touch src/include/app_version.h; \
+	fi
+	@echo "Using a ${key_type} key"
+	west build -p auto -b ${BOARD} 										\
+		. 																\
+		${SIGNATURE_TYPE}												\
+		-Dmcuboot_CONFIG_BOOT_SIGNATURE_KEY_FILE="\"${SIGNING_KEY}\""   \
+		${BUILD_TYPE}
+
+.PHONY: unsigned
+unsigned:
+	@echo "Building an unsigned version"
+	@if [ -e src/include/app_version.h ]; then \
+		echo "rebuilding files depending on version.h"; \
+		touch src/include/app_version.h; \
+	fi
+	west build -p auto -b ${BOARD}
+
+.PHONY: gdb
+gdb:
+	@if [ -e src/include/app_version.h ]; then \
+		echo "rebuilding files depending on version.h"; \
+		touch src/include/app_version.h; \
+	fi
+	west build -p auto -b ${BOARD} -- -DCONFIG_DEBUG_OPTIMIZATIONS=y
+
+
+.PHONY: release
+release:
+	@${MAKE} RELEASE=y all archive
+
+.PHONY: format
+format:
+	@find . ../c_modules -iname '*.[ch]' ! -path './build/*' -exec clang-format -i {} +
+
+.PHONY: eformat
+eformat:
+	@find . ../c_modules -iname '*.[ch]' ! -path './build/*' -exec gsed -i ':a; N; $$!ba; s/"\n\s*"//g' {} +
+	@find . ../c_modules -iname '*.[ch]' ! -path './build/*' -exec clang-format --style Microsoft -i {} +
+
+
+.PHONY: flash
+flash: all
+	@imgtool verify --key ${SIGNING_KEY} build/zephyr/app_update.bin
+	west flash
+	nrfjprog -r
+
+./build/zephyr/app_signed.hex: all
+
+.PHONY: flash_app
+flash_app: ./build/zephyr/app_signed.hex
+	echo "\033[0;31mflashing existing app_signed.hex without checking if it is current or correctly signed\033[0m"
+	nrfjprog -r -f NRF53 --verify --program ./build/zephyr/app_signed.hex --sectorerase
+
+.PHONY: fl
+fl:
+	west build -b ${BOARD}
+	nrfjprog -f NRF53 --program build/zephyr/merged_domains.hex --recover --reset
+
+.PHONY: flash_secure
+flash_secure: all
+	@echo "flashing target"
+	nrfjprog --recover --coprocessor CP_NETWORK
+	nrfjprog --recover
+	west flash --tool-opt recover
+	nrfjprog -r
+
+.PHONY: flash_cpuapp
+flash_cpuapp: all
+	nrfjprog --program ./build/zephyr/merged.hex  --sectorerase
+	nrfjprog -r
+
+.PHONY: flash_cpunet
+flash_cpunet: all
+	nrfjprog --coprocessor CP_NETWORK --program ./build/hci_rpmsg/zephyr/merged_CPUNET.hex  --sectorerase
+	nrfjprog -r
+
+.PHONY: flash_release
+flash_release: release
+	@${MAKE} RELEASE=y flash
+
+.PHONY: reset
+reset:
+	@echo "resetting target"
+	nrfjprog --coprocessor CP_NETWORK -r
+	nrfjprog -r
+
+.PHONY: clean
+clean:
+	@echo "cleaning build"
+	rm -rf build
+
+.PHONY: clean_all
+clean_all:
+	@echo "cleaning build and artifacts"
+	rm -rf build
+	rm -rf artifacts
+
+.PHONY: debug
+debug:
+	west debug
+
+.PHONY: halt
+halt:
+	nrfjprog --coprocessor CP_NETWORK --halt
+	nrfjprog --halt
+
+.PHONY: flashreport
+flashreport:
+	west build -t partition_manager_report
+
+.PHONY: ramreport
+ramreport:
+	west build -t ram_report
+
+# Extract version from CMakeLists.txt, and git hash
+VERSION = $(shell awk -F' ' '/project\(.*VERSION/ {split($$3, version, ")"); print version[1]}' CMakeLists.txt)
+GIT_HASH = $(shell git rev-parse --short=7 HEAD)
+DIRNAME = $(shell basename `pwd`)
+
+ifeq ($(RELEASE),y)
+SIGNED_IMAGE_TYPE = prod
+else
+SIGNED_IMAGE_TYPE = dev
+endif
+
+NEW_FILENAME = $(DIRNAME)-v$(VERSION)-$(GIT_HASH)-$(SIGNED_IMAGE_TYPE)
+.PHONY: archive
+archive:
+	mkdir -p artifacts
+	@echo "archiving $(SIGNED_IMAGE_TYPE) build"
+	cp build/zephyr/zephyr.bin artifacts/${NEW_FILENAME}.bin
+	if [ -e build/zephyr/app_update.bin ]; then \
+		cp build/zephyr/app_update.bin artifacts/${NEW_FILENAME}_update.bin; \
+		if [[ "$(DIRNAME)" = *"purina_d1_lte"* ]]; then \
+			python3 ${WORKSPACE_ROOT}/purina-d1-tools/fota_utils/generate_fota_package.py  --nrf9160_update_file build/zephyr/app_update.bin --nrf9160_update_version $(VERSION); \
+			mv nrf9160_v$(VERSION)_fota.zip artifacts/$(NEW_FILENAME)_fota.zip; \
+		elif [[ "$(DIRNAME)" = *"commercial_collar"* ]]; then \
+			python3 ${WORKSPACE_ROOT}/purina-d1-tools/fota_utils/generate_fota_package.py  --nrf5340_update_file build/zephyr/app_update.bin --nrf5340_update_version $(VERSION); \
+			mv nrf5340_v$(VERSION)_fota.zip artifacts/$(NEW_FILENAME)_fota.zip; \
+		fi \
+	fi
+	cp build/zephyr/zephyr.elf artifacts/${NEW_FILENAME}.elf
+	cp build/zephyr/zephyr.map artifacts/${NEW_FILENAME}.map
+	if [ -e build/zephyr/merged_domains.hex ]; then \
+		cp build/zephyr/merged_domains.hex artifacts/${NEW_FILENAME}_merged.hex; \
+	fi
+	if [ -e build/zephyr/merged.hex ]; then \
+		cp build/zephyr/merged.hex artifacts/${NEW_FILENAME}_APP_merged_domains.hex; \
+	fi
+	if [ -e build/hci_rpmsg/zephyr/merged_CPUNET.hex ]; then \
+		cp build/hci_rpmsg/zephyr/merged_CPUNET.hex  artifacts/${NEW_FILENAME}_NET_merged_domains.hex; \
+	fi
+	if [ -e build/zephyr/app_signed.hex ]; then \
+		cp build/zephyr/app_signed.hex  artifacts/${NEW_FILENAME}_app_signed.hex; \
+	fi
+	if [ -e build/zephyr/net_core_app_signed.hex ]; then \
+		cp build/zephyr/net_core_app_signed.hex  artifacts/${NEW_FILENAME}_net_core_app_signed.hex; \
+	fi
+	@echo "copied firmware images to: artifacts/${NEW_FILENAME}.*"
+	@echo "creating installer script ..."
+	@if [[ "$(DIRNAME)" = *"commercial_collar"* ]]; then \
+		echo 'echo "Programming the Net core"'> artifacts/${NEW_FILENAME}.sh; \
+		echo 'option="$${1:---sectorerase}"' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'if [ "$${option}" != "--recover" ] && [ "$${option}" != "--sectorerase" ]; then' >> artifacts/${NEW_FILENAME}.sh; \
+    	echo 'echo "Error: \"$${option}\" is not a valid option. Please use \"--recover\" or \"--sectorerase\"."' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'echo "Are you sure you want to continue with $${option} [y|N]?"' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'read yorn' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'case $${yorn} in (y*|Y*) ;; (*) echo 1;; esac' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'fi' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -f NRF53 --coprocessor CP_NETWORK --program ${NEW_FILENAME}_NET_merged_domains.hex  $${option} --verify' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'echo "Programming the App core"'>> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -f NRF53 --coprocessor CP_APPLICATION --program ${NEW_FILENAME}_APP_merged_domains.hex $${option} --verify' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'echo "Resetting the nrf5340"'>> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -r' >> artifacts/${NEW_FILENAME}.sh; \
+	elif [[ "$(DIRNAME)" = *"chekr_app"* ]]; then \
+		echo 'echo "Programming the Net core"'> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -f NRF53 --coprocessor CP_NETWORK --program ${NEW_FILENAME}_NET_merged_domains.hex  --recover --verify' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'echo "Programming the App core"'>> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -f NRF53 --coprocessor CP_APPLICATION --program ${NEW_FILENAME}_APP_merged_domains.hex --verify' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'echo "Resetting the nrf5340"'>> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -r' >> artifacts/${NEW_FILENAME}.sh; \
+	elif [[ "$(DIRNAME)" = *"purina_d1_lte"* ]]; then \
+		echo 'echo "Programming the nrf9160 "'>> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -f NRF91 --program ${NEW_FILENAME}_APP_merged_domains.hex --verify' >> artifacts/${NEW_FILENAME}.sh; \
+		echo 'echo "Resetting the nrf9160"'>> artifacts/${NEW_FILENAME}.sh; \
+		echo 'nrfjprog -r' >> artifacts/${NEW_FILENAME}.sh; \
+	fi

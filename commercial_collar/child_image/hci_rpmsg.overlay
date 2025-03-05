@@ -1,0 +1,13 @@
+/ {
+    nrf_radio_fem: fake_fem {
+        compatible  = "nordic,nrf21540-fem";
+        tx-en-gpios = <&gpio0 27 GPIO_ACTIVE_HIGH>;
+        rx-en-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        pdn-gpios   = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+        tx-en-settle-time-us = <100>;
+    };
+};
+
+&uart0 {
+    status = "disabled";
+};

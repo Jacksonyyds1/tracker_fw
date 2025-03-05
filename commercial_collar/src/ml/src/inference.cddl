@@ -1,0 +1,13 @@
+Timestamp = uint .size 8
+
+Inference = [
+	activity: uint .size 1,
+	reps: float .size 4,
+	probability: float .size 4,
+	start: Timestamp,
+	end: Timestamp,
+	am: float .size 4,
+	gm: float .size 4,
+	as: float .size 4,
+	gs: float .size 4,
+]
